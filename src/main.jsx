@@ -22,13 +22,13 @@ createRoot(document.getElementById("root")).render(
           gutter={8}
           toastOptions={{
             className: "",
-            duration: 4000,
+            duration: 2000,
             style: {
               background: "#363636",
               color: "#fff",
             },
             success: {
-              duration: 4000,
+              duration: 2000,
               theme: {
                 primary: "green",
                 secondary: "black",

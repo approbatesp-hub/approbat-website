@@ -156,13 +156,18 @@ const Header = ({ openDrawer }) => {
               >
                 <div className="relative">
                   {userInfo?.emailVerified ? (
-                    <div className="relative">
+                    <div className="relative flex items-center gap-1">
                       {/* Avatar */}
                       <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
                         {getInitials()}
                       </div>
                       {/* Status dot (Optional on mobile, but keep for consistency) */}
                       <div className="hidden md:block absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+                      <IoIosArrowDown
+                        className={`  text-gray-500 transition-transform duration-300 ${
+                          isUserMenuOpen ? "rotate-180" : ""
+                        }`}
+                      />{" "}
                     </div>
                   ) : (
                     <FaUserSlash className="text-xl md:text-2xl text-gray-400" />
@@ -188,11 +193,11 @@ const Header = ({ openDrawer }) => {
 
               {/* User Dropdown Menu (Unchanged - Styling is great) */}
               {isUserMenuOpen && (
-                <div className="absolute right-[-10px] md:right-0 mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-60 animate-in fade-in-80 zoom-in-95">
+                <div className="absolute right-[-40px] md:right-0 mt-2 md:mt-3 w-72 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden z-60 animate-in fade-in-80 zoom-in-95">
                   {!userInfo ? (
-                    <div className="p-6 text-center">
+                    <div className="p-3 md:p-6 text-center">
                       {/* ... (Login Prompt) ... */}
-                      <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <div className=" h-12 w-12 md:w-16 md:h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <PiUserCircleLight className="text-3xl text-gray-400" />
                       </div>
                       <p className="text-gray-600 mb-4">
@@ -203,7 +208,7 @@ const Header = ({ openDrawer }) => {
                           navigate("/connexion");
                           setIsUserMenuOpen(false);
                         }}
-                        className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3.5 rounded-xl font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer"
+                        className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2 md:py-3.5 rounded-xl font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer"
                       >
                         Se Connecter
                       </button>
@@ -211,7 +216,7 @@ const Header = ({ openDrawer }) => {
                   ) : userInfo.emailVerified ? (
                     <>
                       {/* ... (Verified User Menu) ... */}
-                      <div className="p-4 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
+                      <div className="py-2 px-4 md:p-4 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
                         <div className="flex items-center space-x-4">
                           <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold">
                             {getInitials()}
@@ -226,7 +231,7 @@ const Header = ({ openDrawer }) => {
                           </div>
                         </div>
                       </div>
-                      <div className="p-2">
+                      <div className="p-1 md:p-2">
                         {[
                           {
                             path: "/profil",
@@ -263,7 +268,7 @@ const Header = ({ openDrawer }) => {
                             onClick={() => setIsUserMenuOpen(false)}
                             // Fix for Tailwind dynamic classes (you'll need to ensure these are in your safelist/config)
                             // Replaced with fixed colors or using a safer approach
-                            className="flex items-center space-x-2 p-2 rounded-xl hover:bg-gray-50 text-gray-700 transition-all duration-200 group border border-transparent hover:border-gray-200"
+                            className="flex items-center space-x-2 p-1 md:p-2 rounded-xl hover:bg-gray-50 text-gray-700 transition-all duration-200 group border border-transparent hover:border-gray-200"
                           >
                             <div
                               className={`w-10 h-10 ${
@@ -296,7 +301,7 @@ const Header = ({ openDrawer }) => {
                       </div>
                       <div className="p-4 border-t border-gray-200 bg-gray-50">
                         <button
-                          className="flex items-center justify-center space-x-3 w-full p-3.5 rounded-xl bg-white text-red-600 transition-all duration-200 group border border-red-200 hover:bg-red-50 hover:border-red-300 cursor-pointer"
+                          className="flex items-center justify-center space-x-3 w-full p-2 md:p-3.5 rounded-xl bg-white text-red-600 transition-all duration-200 group border border-red-200 hover:bg-red-50 hover:border-red-300 cursor-pointer"
                           onClick={() => {
                             signOut();
                             setIsUserMenuOpen(false);

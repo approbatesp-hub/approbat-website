@@ -38,7 +38,7 @@ const BackToTop = () => {
           className="backToTop bg-orange-500 tooltip"
           data-tip="Haut de page"
         >
-          <TbArrowBigUpLines />
+          <TbArrowBigUpLines className="text-[20px] md:text-[30px] " />
         </button>
       )}
     </div>

@@ -267,7 +267,7 @@ const Cart = () => {
             <Lottie
               animationData={Empty}
               loop={true}
-              className="w-58 md:w-64 h-auto"
+              className="w-50 md:w-64 h-auto"
             />
             <Link
               to="/boutique"

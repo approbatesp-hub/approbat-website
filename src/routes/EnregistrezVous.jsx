@@ -82,20 +82,20 @@ const EnregistrezVous = () => {
 
         {/* Form Container */}
         <div className="">
-          <div className="text-center mb-8 bg-gradient-to-r from-orange-500 to-red-500  ">
+          <div className="text-center mb-4 lg:mb-8 bg-gradient-to-r from-orange-500 to-red-500  ">
             <div className="flex  items-center justify-center space-x-2 ">
-              <h3 className="text-2xl font-bold text-white mb-2 mt-5 ">
+              <h3 className="text-xl md:text-2xl  font-bold text-white lg:mt-5 mt-2 mb-1 lg:mb-3 ">
                 Créer un compte
               </h3>
             </div>
-            <p className=" text-center text-white pb-3">
+            <p className=" text-center text-white pb-3 text-sm md:text-base px-3">
               Veuillez renseigner des informations correctes svp !
             </p>
           </div>
-          <div className="px-10 py-3">
+          <div className="px-4 lg:px-8 py-2 lg:py-3">
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Grid Layout for larger screens */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 {/* Full Name */}
                 <div className="space-y-2">
                   <label
@@ -116,7 +116,7 @@ const EnregistrezVous = () => {
                       type="text"
                       required
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg 
-                    placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="Votre nom complet"
                     />
@@ -132,7 +132,7 @@ const EnregistrezVous = () => {
                     Adresse email
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <div className="absolute placeholder:text-sm lg:placeholder:text-base inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                       <IoMailOutline className="h-5 w-5 text-gray-400" />
                     </div>
                     <input
@@ -143,7 +143,7 @@ const EnregistrezVous = () => {
                       type="email"
                       required
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg 
-                    placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="votre@email.com"
                     />
@@ -170,7 +170,7 @@ const EnregistrezVous = () => {
                       type={showPassword ? "text" : "password"}
                       required
                       className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
-                    placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="Créez un mot de passe"
                     />
@@ -207,7 +207,7 @@ const EnregistrezVous = () => {
                       type={showConfirmPassword ? "text" : "password"}
                       required
                       onChange={(e) => setConfirmedPassword(e.target.value)}
-                      className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
+                      className="block w-full placeholder:text-sm lg:placeholder:text-base pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
                     placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="Confirmez le mot de passe"
@@ -233,7 +233,7 @@ const EnregistrezVous = () => {
               <div className="space-y-2">
                 <label
                   htmlFor="phoneNumber"
-                  className="block text-sm font-medium text-gray-700 flex items-center gap-2"
+                  className=" text-sm font-medium text-gray-700 flex items-center gap-2"
                 >
                   <BsTelephone className="text-orange-500" />
                   Votre numéro actif
@@ -252,7 +252,7 @@ const EnregistrezVous = () => {
                     required
                     className="block w-full pl-[80px] pr-3 py-3 border border-gray-300 rounded-lg 
                   placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
-                  focus:border-transparent transition-all duration-200"
+                  focus:border-transparent placeholder:text-sm lg:placeholder:text-base transition-all duration-200"
                     placeholder="XX XX XX XX"
                   />
                 </div>
@@ -262,7 +262,7 @@ const EnregistrezVous = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full hoverBtn cursor-pointer text-white py-3 px-4 
+                className="w-full hoverBtn cursor-pointer text-white py-2 lg:py-3 px-4 
               rounded-lg font-medium 
               focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 
               transition-all duration-200 transform hover:-translate-y-0.5 

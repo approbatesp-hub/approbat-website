@@ -259,7 +259,8 @@ const VoirProduits = () => {
                 className="border border-gray-300 flex-1 text-gray-700 px-1 md:px-6 py-2 md:py-3 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-1 md:gap-2 cursor-pointer"
               >
                 <FiRefreshCw className="text-lg" />
-                Réinitialiser
+                <span className="hidden lg:inline">Réinitialiser</span>{" "}
+                <span className="inline lg:hidden">Réinit.</span>
               </button>
             </div>
           </div>

@@ -101,7 +101,7 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen  bg-gray-50 pt-[140px] pb-[50px] md:py-[120px]   ">
-      <div className="lg:max-w-[95%]  xl:max-w-[85%] h-full  mx-auto  px-4 sm:px-6 lg:px-8">
+      <div className="lg:max-w-[95%]  xl:max-w-[85%] h-full  mx-auto  px-2 sm:px-6 lg:px-8">
         {/* --- Header Section --- */}
         <header className="mb-3 md:mb-5">
           <h1 className=" text-2xl md:text-3xl font-bold text-gray-800 text-nowrap">
@@ -110,7 +110,7 @@ const Layout = () => {
         </header>
 
         {/* --- Main Layout: Sidebar + Content --- */}
-        <div className="flex flex-row gap-4 md:gap-8 h-full">
+        <div className="flex flex-row gap-3 md:gap-8 h-full">
           {/* --- Sidebar --- */}
           <aside className="w-[15%] max-h-[75vh] md:w-64 ">
             <nav className="bg-white items-center rounded-lg shadow-sm p-4 h-full flex flex-col">
@@ -143,7 +143,7 @@ const Layout = () => {
           </aside>
 
           {/* --- Main Content --- */}
-          <main className="flex-1 bg-white rounded-lg shadow-sm p-4 lg:p-6 min-h-[75vh]">
+          <main className="flex-1 bg-white rounded-lg shadow-sm p-3 lg:p-6 min-h-[75vh]">
             <Outlet />
           </main>
         </div>

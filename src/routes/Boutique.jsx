@@ -147,8 +147,12 @@ const Boutique = () => {
       </div>
 
       {isLoading ? (
-        <div className="flex border border-[#E5E5E5] rounded-md items-center justify-center w-full">
-          <Lottie animationData={Aloading} loop className="w-[200px]" />
+        <div className="flex  h-full  rounded-md items-center justify-center w-full">
+          <Lottie
+            animationData={Aloading}
+            loop
+            className="w-[100px] lg:w-[200px]"
+          />
         </div>
       ) : filteredProduits.length > 0 ? (
         <div className="w-full">
@@ -183,7 +187,7 @@ const Boutique = () => {
             <Lottie
               animationData={Nothing}
               loop
-              className="w-[250px] lg:w-[400px]"
+              className="w-[200px] lg:w-[400px]"
             />
           </div>
         </div>

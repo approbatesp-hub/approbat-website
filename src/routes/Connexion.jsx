@@ -63,15 +63,15 @@ const Connexion = () => {
 
         {/* Form Container */}
         <div className="">
-          <div className="text-center mb-8 bg-gradient-to-r from-orange-500 to-red-500 p-4  ">
-            <h3 className="text-2xl font-bold text-white mt-5 mb-3 ">
+          <div className="text-center mb-4 lg:mb-8 bg-gradient-to-r from-orange-500 to-red-500 p-2 md:p-4  ">
+            <h3 className="text-xl md:text-2xl font-bold text-white lg:mt-5 mt-2 mb-1 lg:mb-3 ">
               Bienvenue chez Approbat
             </h3>
-            <p className="text-white">
+            <p className="text-white text-sm md:text-base">
               Saisissez vos informations pour accéder à votre compte
             </p>
           </div>
-          <div className="px-8  ">
+          <div className="px-4 lg:px-8  ">
             <form onSubmit={signIn} className="space-y-6">
               {/* Email Field */}
               <div className="space-y-2">
@@ -91,7 +91,7 @@ const Connexion = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     type="email"
                     required
-                    className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg 
+                    className="block w-full pl-10 pr-3 py-3 border placeholder:text-sm lg:placeholder:text-base border-gray-300 rounded-lg 
                            placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
                            focus:border-transparent transition-all duration-200"
                     placeholder="votre@email.com"
@@ -126,7 +126,7 @@ const Connexion = () => {
                     type={passwordType}
                     required
                     className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
-                           placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                           placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500  placeholder:text-sm lg:placeholder:text-base
                            focus:border-transparent transition-all duration-200"
                     placeholder="Votre mot de passe"
                   />
@@ -148,7 +148,7 @@ const Connexion = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-4 
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2 lg:py-3 px-4 
                        rounded-lg font-medium hover:from-orange-600 hover:to-orange-700 
                        focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 
                        transition-all duration-200 transform hover:-translate-y-0.5 
