@@ -7,11 +7,23 @@ const BlogID = () => {
   const navigate = useNavigate();
   const article = state?.article;
 
-  // Reading time
+  if (!article) {
+    return (
+      <div className="pt-[140px] pb-20 bg-gradient-to-b from-slate-50 to-blue-50/20 text-center">
+        <p className="text-gray-600">Article non trouvé.</p>
+        <button
+          onClick={() => navigate("/blog")}
+          className="mt-4 text-amber-600 font-medium"
+        >
+          Retour au blog
+        </button>
+      </div>
+    );
+  }
+
   const words = article.content.trim().split(/\s+/).length;
   const readingTime = Math.max(1, Math.ceil(words / 200));
 
-  // Format date
   const formattedDate = new Date(
     article.createdAt || Date.now()
   ).toLocaleDateString("fr-FR", {
@@ -20,7 +32,7 @@ const BlogID = () => {
     year: "numeric",
   });
 
-  // Render paragraphs with enhanced formatting
+  // ✅ Your original renderFormattedParagraph — untouched!
   const renderFormattedParagraph = (text, index) => {
     if (!text.trim()) return null;
 
@@ -31,12 +43,11 @@ const BlogID = () => {
       "<code class='inline-code'>$1</code>"
     );
 
-    // Headings with improved styling
     if (text.startsWith("### ")) {
       return (
         <h4
           key={index}
-          className="text-xl font-semibold text-gray-800 mt-8 mb-5 tracking-tight pl-4 border-l-3 border-amber-400 transform transition-all duration-500 "
+          className="text-xl font-semibold capitalize text-gray-800 mt-8 mb-5 tracking-tight pl-4 border-l-3 border-amber-400 transform transition-all duration-500 "
           dangerouslySetInnerHTML={{
             __html: formattedText.replace(/^### /, ""),
           }}
@@ -46,7 +57,7 @@ const BlogID = () => {
       return (
         <h3
           key={index}
-          className="text-2xl font-bold text-gray-900 mt-8 mb-5 tracking-tight relative 
+          className="text-2xl font-bold text-gray-900 mt-12 capitalize mb-5 tracking-tight relative 
                      before:content-[''] before:absolute before:left-0 before:bottom-0 before:w-20 before:h-1 before:bg-gradient-to-r before:from-amber-400 before:to-amber-500 before:rounded-full"
           dangerouslySetInnerHTML={{
             __html: formattedText.replace(/^## /, ""),
@@ -55,15 +66,14 @@ const BlogID = () => {
       );
     } else if (text.startsWith("# ")) {
       return (
-        <h2
+        <h3
           key={index}
-          className="text-3xl font-bold text-gray-900 mt-8 mb-5 tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text  relative inline-block"
+          className="text-3xl capitalize font-bold text-gray-900 mt-12 mb-5 tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text  relative inline-block"
           dangerouslySetInnerHTML={{ __html: formattedText.replace(/^# /, "") }}
         />
       );
     }
 
-    // Regular paragraph with enhanced styling
     return (
       <p
         key={index}
@@ -77,9 +87,173 @@ const BlogID = () => {
     );
   };
 
-  const paragraphs = article.content
-    .split(/\n{2,}/)
-    .filter((p) => p.trim() !== "");
+  // ✅ NEW: Lightweight block splitter (only for lists & tables)
+  const splitIntoBlocks = (content) => {
+    const lines = content.split("\n");
+    const blocks = [];
+    let buffer = [];
+    let inList = false;
+    let inTable = false;
+
+    const flush = () => {
+      if (buffer.length > 0) {
+        blocks.push(buffer.join("\n"));
+        buffer = [];
+      }
+    };
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const trimmed = line.trim();
+
+      const isUnordered = /^(\*|-)\s/.test(trimmed);
+      const isOrdered = /^\d+\.\s/.test(trimmed);
+      const isTableLine =
+        trimmed.includes("|") && trimmed.split("|").length > 2;
+      const isListItem = isUnordered || isOrdered;
+
+      const isListLine = isListItem;
+      const isTable = isTableLine;
+
+      if (isListLine) {
+        if (!inList || inTable) {
+          flush();
+          inList = true;
+          inTable = false;
+        }
+        buffer.push(line);
+      } else if (isTable) {
+        if (!inTable || inList) {
+          flush();
+          inTable = true;
+          inList = false;
+        }
+        buffer.push(line);
+      } else {
+        if (inList || inTable || trimmed === "") {
+          flush();
+          inList = false;
+          inTable = false;
+        }
+        if (trimmed !== "") {
+          buffer.push(line);
+        } else {
+          flush();
+        }
+      }
+    }
+    flush();
+    return blocks;
+  };
+
+  // ✅ Render a block: if it's a list or table, handle it; else use your original function
+  const renderBlock = (block, index) => {
+    const lines = block.split("\n").filter((l) => l.trim() !== "");
+    if (lines.length === 0) return null;
+
+    // Check if it's a list
+    if (lines.every((l) => /^(\*|-|\d+\.)\s/.test(l.trim()))) {
+      const isOrdered = lines[0].trim().match(/^\d+\./);
+      if (isOrdered) {
+        return (
+          <ol
+            key={index}
+            className="list-decimal list-inside mb-5 pl-5 space-y-2 text-[17px] text-gray-700"
+          >
+            {lines.map((l, i) => (
+              <li
+                key={i}
+                dangerouslySetInnerHTML={{
+                  __html: l
+                    .replace(/^\d+\.\s+/, "")
+                    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                    .replace(/\*(.*?)\*/g, "<em>$1</em>"),
+                }}
+              />
+            ))}
+          </ol>
+        );
+      } else {
+        return (
+          <ul
+            key={index}
+            className="list-disc list-inside mb-5 pl-5 space-y-2 text-[17px] text-gray-700"
+          >
+            {lines.map((l, i) => (
+              <li
+                key={i}
+                dangerouslySetInnerHTML={{
+                  __html: l
+                    .replace(/^(\*|-)\s+/, "")
+                    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                    .replace(/\*(.*?)\*/g, "<em>$1</em>"),
+                }}
+              />
+            ))}
+          </ul>
+        );
+      }
+    }
+
+    // Check if it's a table
+    if (lines.every((l) => l.includes("|")) && lines.length >= 2) {
+      const rows = lines.map((l) =>
+        l
+          .split("|")
+          .map((c) => c.trim())
+          .filter((c) => c !== "")
+      );
+      if (rows[0].length < 2) return renderFormattedParagraph(block, index);
+
+      const headers = rows[0];
+      const body = rows.slice(1);
+
+      return (
+        <div key={index} className="my-6 overflow-x-auto">
+          <table className="min-w-full border-collapse border border-gray-300">
+            <thead>
+              <tr className="bg-gray-100">
+                {headers.map((h, i) => (
+                  <th
+                    key={i}
+                    className="border border-gray-300 px-3 py-2 text-left font-semibold text-gray-800"
+                  >
+                    {h
+                      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                      .replace(/\*(.*?)\*/g, "<em>$1</em>")}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {body.map((row, ri) => (
+                <tr
+                  key={ri}
+                  className={ri % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                >
+                  {row.map((cell, ci) => (
+                    <td
+                      key={ci}
+                      className="border border-gray-300 px-3 py-2 text-gray-700"
+                    >
+                      {cell
+                        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                        .replace(/\*(.*?)\*/g, "<em>$1</em>")}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+
+    // Otherwise, it's a regular paragraph (or heading) → use your original function
+    return renderFormattedParagraph(block, index);
+  };
+
+  const blocks = splitIntoBlocks(article.content);
 
   const copyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -93,21 +267,9 @@ const BlogID = () => {
     });
   };
 
-  const saveArticle = () => {
-    toast.success("Article sauvegardé !", {
-      icon: "📑",
-      style: {
-        borderRadius: "12px",
-        background: "#7c3aed",
-        color: "#fff",
-      },
-    });
-  };
-
   return (
     <div className="pt-[140px] pb-20 bg-gradient-to-b from-slate-50 to-blue-50/20">
       <article className="md:max-w-[90%] lg:max-w-[45%] mx-auto px-6 sm:px-6 lg:px-8">
-        {/* Hero Image with Overlay */}
         {article.mainImage && (
           <div className="relative rounded-2xl overflow-hidden shadow-lg mb-5">
             <img
@@ -130,17 +292,14 @@ const BlogID = () => {
           </div>
         )}
 
-        {/* Title */}
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 text-center text-balance capitalize leading-tight">
           {article.title}
         </h1>
 
-        {/* Content */}
         <div className="prose prose-gray max-w-none font-serif text-lg">
-          {paragraphs.map(renderFormattedParagraph)}
+          {blocks.map(renderBlock)}
         </div>
 
-        {/* Action Footer */}
         <div className="mt-6 pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="flex flex-wrap justify-center sm:justify-start gap-4">
             <button
