@@ -160,9 +160,9 @@ const Header = ({ openDrawer }) => {
                         {getInitials()}
                       </div>
                       {/* Status dot (Optional on mobile, but keep for consistency) */}
-                      <div className="hidden md:block absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+                      <div className="hidden lg:block absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
                       <IoIosArrowDown
-                        className={`  text-gray-500 transition-transform duration-300 ${
+                        className={`block  lg:hidden text-gray-500 transition-transform duration-300 ${
                           isUserMenuOpen ? "rotate-180" : ""
                         }`}
                       />{" "}

@@ -1,12 +1,24 @@
 import { useLocation, useNavigate } from "react-router";
 import { FiArrowLeft, FiCalendar, FiClock, FiShare2 } from "react-icons/fi";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 const BlogID = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const article = state?.article;
 
+  const [article, setArticle] = useState(state?.article || null);
+
+  useEffect(() => {
+    if (state?.article) {
+      localStorage.setItem("selectedArticle", JSON.stringify(state.article));
+    } else {
+      const stored = localStorage.getItem("selectedArticle");
+      if (stored) {
+        setArticle(JSON.parse(stored));
+      }
+    }
+  }, [state]);
   if (!article) {
     return (
       <div className="pt-[140px] pb-20 bg-gradient-to-b from-slate-50 to-blue-50/20 text-center">

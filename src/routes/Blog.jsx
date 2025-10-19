@@ -109,9 +109,13 @@ const Blog = () => {
                   article={article}
                   formatDate={formatDate}
                   calculateReadingTime={calculateReadingTime}
-                  onClick={() =>
-                    navigate(`/blog/${article.id}`, { state: { article } })
-                  }
+                  onClick={() => {
+                    navigate(`/blog/${article.id}`, { state: { article } });
+                    localStorage.setItem(
+                      "selectedArticle",
+                      JSON.stringify(article)
+                    );
+                  }}
                 />
               ))}
             </div>
