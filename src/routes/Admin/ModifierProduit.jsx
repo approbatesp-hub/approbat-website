@@ -344,7 +344,7 @@ const ModifierProduit = () => {
                 <div>
                   <label htmlFor="photo">
                     <div className="flex items-center flex-col justify-center">
-                      <BsFillCloudUploadFill className="text-5xl text-gray-400 group-hover:text-orange-500 transition-colors" />
+                      <BsFillCloudUploadFill className="text-5xl text-gray-400 group-hover:text-amber-500 transition-colors" />
                       <p className="mt-3 text-gray-500 text-center">
                         Cliquez pour télécharger 1 à 3 images
                         <br />
@@ -380,7 +380,7 @@ const ModifierProduit = () => {
                     <div className="w-full">
                       <div className="flex justify-center items-center gap-3  ">
                         <p className="text-xs">
-                          <span className="hidden md:inline-block">
+                          <span className="hidden lg:inline-block">
                             {item
                               .split("-")
                               .slice(1)
@@ -389,7 +389,7 @@ const ModifierProduit = () => {
                               .replaceAll("%", " ")}
                           </span>
 
-                          <span className="inline-block md:hidden">
+                          <span className="inline-block lg:hidden">
                             {item
                               .split("-")
                               .slice(1)
@@ -404,7 +404,7 @@ const ModifierProduit = () => {
                     </div>
                     <MdDelete
                       onClick={() => deleteImage(item)}
-                      className="ml-auto text-slate-300 hover:text-red-400 duration-500 transition-all cursor-pointer text-4xl "
+                      className="ml-auto text-slate-300 hover:text-amber-500 duration-500 transition-all cursor-pointer text-4xl "
                     />
                   </div>
                 ))}
@@ -422,7 +422,7 @@ const ModifierProduit = () => {
               value={nom}
               onChange={(e) => setNom(e.target.value)}
               placeholder="Nom du produit"
-              className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-300 focus:border-transparent outline-none"
+              className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-transparent outline-none"
               required
             />
             <textarea
@@ -430,7 +430,7 @@ const ModifierProduit = () => {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Description du produit"
               rows={3}
-              className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-300 focus:border-transparent outline-none resize-none"
+              className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-transparent outline-none resize-none"
             />
 
             {/* Dropdowns Row */}
@@ -443,7 +443,7 @@ const ModifierProduit = () => {
                 className="text-sm"
                 classNames={{
                   control: (state) =>
-                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-orange-400 focus:border-orange-500",
+                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
               <Select
@@ -454,7 +454,7 @@ const ModifierProduit = () => {
                 className="text-sm"
                 classNames={{
                   control: (state) =>
-                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-orange-400 focus:border-orange-500",
+                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
             </div>
@@ -470,7 +470,7 @@ const ModifierProduit = () => {
                 className="text-sm"
                 classNames={{
                   control: (state) =>
-                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-orange-400 focus:border-orange-500",
+                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
               <input
@@ -479,7 +479,7 @@ const ModifierProduit = () => {
                 placeholder="Quantité minimale"
                 type="number"
                 min="1"
-                className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-300 focus:border-transparent outline-none"
+                className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-transparent outline-none"
               />
             </div>
 
@@ -496,7 +496,7 @@ const ModifierProduit = () => {
                 className="text-sm"
                 classNames={{
                   control: (state) =>
-                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-orange-400 focus:border-orange-500",
+                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
               <Select
@@ -508,7 +508,7 @@ const ModifierProduit = () => {
                 className="text-sm"
                 classNames={{
                   control: (state) =>
-                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-orange-400 focus:border-orange-500",
+                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
             </div>
@@ -528,7 +528,7 @@ const ModifierProduit = () => {
                 className="text-sm"
                 classNames={{
                   control: (state) =>
-                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-orange-400 focus:border-orange-500",
+                    "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
               <input
@@ -538,7 +538,7 @@ const ModifierProduit = () => {
                 type="number"
                 min="0"
                 step="0.01"
-                className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-300 focus:border-transparent outline-none"
+                className="w-full p-2 md:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-300 focus:border-transparent outline-none"
               />
             </div>
 
@@ -561,7 +561,7 @@ const ModifierProduit = () => {
                         min="0"
                         step="0.01"
                         placeholder={`Prix pour ${type.label}`}
-                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-orange-300 outline-none"
+                        className="w-full p-2 border border-gray-300 rounded-md focus:ring-1 focus:ring-amber-300 outline-none"
                       />
                     </div>
                   ))}
@@ -573,7 +573,7 @@ const ModifierProduit = () => {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
               >
                 Enregistrer
               </button>

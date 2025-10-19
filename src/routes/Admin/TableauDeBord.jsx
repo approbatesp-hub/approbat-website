@@ -146,7 +146,7 @@ const TableauDeBord = () => {
                 0
               )
             )} FCFA`,
-            color: "from-orange-400 to-orange-500",
+            color: "from-amber-400 to-amber-500",
           },
           {
             title: "Nombre de commandes",
@@ -199,7 +199,7 @@ const TableauDeBord = () => {
 
       <div className="text-center mt-5 lg:hidden ">
         <div className=" flex justify-center text-[40px] text-center ">
-          <IoIosWarning className="text-orange-500" />
+          <IoIosWarning className="text-amber-500" />
         </div>
         <p className="text-sm md:text-lg">
           Pour voir les graphes, connectez vous sur un appareil d'au moins

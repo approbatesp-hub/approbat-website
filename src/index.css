@@ -169,8 +169,8 @@ button {
 
 /* Style for the currently active page */
 .rc-pagination .rc-pagination-item-active {
-  border-color: #ea580c !important; /* orange-500 */
-  background-color: #ea580c !important; /* orange-500 */
+  border-color: #fe9900 !important; /* orange-500 */
+  background-color: #fe9900 !important; /* orange-500 */
 }
 
 .rc-pagination .rc-pagination-item-active a {
@@ -180,12 +180,16 @@ button {
 /* Ensure active page doesn't change on hover */
 .rc-pagination .rc-pagination-item-active:hover,
 .rc-pagination .rc-pagination-item-active:hover a {
-  border-color: #ea580c !important;
-  background-color: #ea580c !important;
+  border-color: #fe9900 !important;
+  background-color: #fe9900 !important;
   color: #ffffff !important;
 }
 
 .rc-pagination-prev .rc-pagination-item-link,
 .rc-pagination-next .rc-pagination-item-link {
   @apply border-none;
+}
+
+.float-left {
+  float: left;
 }

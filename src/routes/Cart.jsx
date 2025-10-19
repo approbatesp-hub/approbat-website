@@ -19,9 +19,9 @@ import { formatNumberWithDots } from "../utils/constants";
 import { MdOutlineDelete } from "react-icons/md";
 import { HiMiniPlus, HiMiniMinus } from "react-icons/hi2";
 
-// Define a consistent color variable for primary actions (assuming 'orange3' is your primary color)
-const PRIMARY_COLOR = "bg-orange-500 hover:bg-orange-600";
-const TEXT_COLOR = "text-orange-500";
+// Define a consistent color variable for primary actions (assuming 'amber3' is your primary color)
+const PRIMARY_COLOR = "bg-amber-500 hover:bg-amber-600";
+const TEXT_COLOR = "text-amber-500";
 
 const Cart = () => {
   const { cart, userInfo } = useSelector((state) => state.projet);
@@ -100,7 +100,7 @@ const Cart = () => {
                 Résumé des achats
               </h3>
               <button
-                className="flex cursor-pointer items-center gap-2 bg-orange-500 hover:bg-orange-600 transition-colors text-white font-medium py-2 px-2 md:px-4 rounded-lg text-sm"
+                className="flex cursor-pointer items-center gap-2 bg-amber-500 hover:bg-amber-600 transition-colors text-white font-medium py-2 px-2 md:px-4 rounded-lg text-sm"
                 onClick={() => {
                   dispatch(resetAll());
                   toast.success("Panier vidé avec succès");
@@ -170,10 +170,10 @@ const Cart = () => {
                       }}
                     >
                       <MdOutlineDelete
-                        className="text-2xl text-orange-500 hover:text-orange-400  transition-colors duration-300"
+                        className="text-2xl text-amber-500 hover:text-amber-400  transition-colors duration-300"
                         title="Retirer l'article"
                       />
-                      <span className="md:text-lg text-orange-500 hover:text-orange-400 transition-colors duration-300  ">
+                      <span className="md:text-lg text-amber-500 hover:text-amber-400 transition-colors duration-300  ">
                         Supprimer
                       </span>
                     </div>
@@ -187,7 +187,7 @@ const Cart = () => {
                               decreaseQuantity({ produit: el, type: el.type })
                             )
                           }
-                          className=" disabled:bg-gray-400 bg-orange-500 cursor-pointer px-1 rounded py-1 text-white "
+                          className=" disabled:bg-gray-400 bg-amber-500 cursor-pointer px-1 rounded py-1 text-white "
                         >
                           <HiMiniMinus className="text-xl" />
                         </button>
@@ -198,7 +198,7 @@ const Cart = () => {
                               increaseQuantity({ produit: el, type: el.type })
                             )
                           }
-                          className="bg-orange-500 cursor-pointer px-1 rounded py-1 text-white"
+                          className="bg-amber-500 cursor-pointer px-1 rounded py-1 text-white"
                         >
                           <HiMiniPlus className="text-2xl" />
                         </button>

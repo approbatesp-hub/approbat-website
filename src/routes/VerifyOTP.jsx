@@ -196,7 +196,7 @@ const VerifyOTP = () => {
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
           {/* Header with gradient */}
-          <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white p-6 text-center">
+          <div className="bg-gradient-to-br from-amber-400 to-amber-500 text-white p-6 text-center">
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg
                 className="w-8 h-8 text-white"
@@ -236,8 +236,8 @@ const VerifyOTP = () => {
                     onKeyDown={(e) => handleKeyDown(index, e)}
                     onPaste={handlePaste}
                     disabled={isLoading}
-                    className={`w-12 h-12 text-2xl font-semibold text-center border-2 rounded-lg transition-all duration-200 focus:ring focus:ring-orange text-gray-700 focus:border-orange outline-none ${
-                      digit ? "border-orange " : "border-gray-300"
+                    className={`w-12 h-12 text-2xl font-semibold text-center border-2 rounded-lg transition-all duration-200 focus:ring focus:ring-amber text-gray-700 focus:border-amber outline-none ${
+                      digit ? "border-amber " : "border-gray-300"
                     } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
                   />
                 ))}

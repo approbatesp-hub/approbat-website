@@ -12,26 +12,28 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 text-white py-5 shadow-lg border-t border-gray-700">
-      <div className="lg:max-w-[90%] xl:max-w-[80%]    mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="lg:max-w-[90%] xl:max-w-[85%]    mx-auto px-4 sm:px-6 lg:p-0">
         {/* Main Footer Content */}
-        <div className="grid  grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-8">
+        <div className="grid items-center grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-8">
           {/* Company Info */}
           <div className="flex flex-col items-center justify-center md:items-start ">
             <Link
               to="/"
               className="flex flex-col items-center md:items-start group"
             >
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-1">
                 <img
                   src={Logo}
                   alt="Approbat Logo"
-                  className="w-12 h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:scale-110"
+                  className="w-12 h-12 md:w-20 md:h-20 transition-transform duration-300 group-hover:scale-110"
                 />
-                <span className="text-xl font-bold text-white">Approbat</span>
+                <span className="text-xl font-bold text-white">
+                  Approbat Services
+                </span>
               </div>
             </Link>
             <div className="flex items-center space-x-2 text-gray-300">
-              <IoConstruct className="text-orange-500 hidden lg:block" />
+              <IoConstruct className="text-amber hidden lg:block" />
               <p className="text-sm text-center md:text-left hidden lg:block">
                 Fournisseur de matériaux de construction de qualité
               </p>
@@ -43,22 +45,28 @@ const Footer = () => {
             <h3 className="text-lg font-semibold text-white mb-2">
               Navigation
             </h3>
-            <div className="flex gap-5 text-center md:text-left">
+            <div className="flex flex-col items-center lg:flex-row gap-4 text-center md:text-left">
               <Link
                 to="/boutique"
-                className="text-gray-300 hover:text-orange-500 transition-all duration-300 hover:translate-x-1"
+                className="text-gray-300 hover:text-amber transition-all duration-300 hover:translate-x-1"
               >
                 Boutique
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-300 text-nowrap hover:text-orange-500 transition-all duration-300 hover:translate-x-1"
+                className="text-gray-300 text-nowrap hover:text-amber transition-all duration-300 hover:translate-x-1"
               >
                 Contactez-Nous
               </Link>
               <Link
+                to="/blog"
+                className="text-gray-300 text-nowrap hover:text-amber transition-all duration-300 hover:translate-x-1"
+              >
+                Articles
+              </Link>
+              <Link
                 to="/profil"
-                className="text-gray-300 text-nowrap hover:text-orange-500 transition-all duration-300 hover:translate-x-1"
+                className="text-gray-300 text-nowrap hover:text-amber transition-all duration-300 hover:translate-x-1"
               >
                 Mon Profil
               </Link>
@@ -106,7 +114,7 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <p className="text-gray-400  space-y-2 md:space-y-0 text-sm text-center ">
-          © 2024 Approbat. Tous droits réservés.
+          © 2025 Approbat. Tous droits réservés.
         </p>
       </div>
     </footer>

@@ -106,7 +106,7 @@ const Coupons = () => {
   if (error) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-center text-red-600">
+        <div className="text-center text-amber-600">
           <p>Erreur lors de la récupération des coupons</p>
         </div>
       </div>
@@ -272,7 +272,7 @@ const Coupons = () => {
                           {coupon.nom}
                         </td>
                         <td className="p-3">
-                          <span className="bg-orange-300 text-blue-600 px-2 py-1 rounded-full text-sm font-medium">
+                          <span className="bg-amber-300 text-blue-600 px-2 py-1 rounded-full text-sm font-medium">
                             {coupon.reduction}%
                           </span>
                         </td>
@@ -285,7 +285,7 @@ const Coupons = () => {
                         <td className="p-3">
                           <button
                             onClick={() => deleteCoupon(coupon.id)}
-                            className="text-red-600 hover:bg-red-500 p-1 rounded-md  cursor-pointer hover:text-white transition-colors"
+                            className="text-amber-500 hover:bg-amber-600 p-1 rounded-md  cursor-pointer hover:text-white transition-colors"
                             title="Supprimer le coupon"
                           >
                             <FiTrash2 className="text-lg" />

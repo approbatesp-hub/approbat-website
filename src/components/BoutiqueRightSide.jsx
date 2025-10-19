@@ -56,7 +56,7 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
         <div className="flex   items-center justify-between border-b border-[#E5E5E5] md:border-none pb-2">
           <h3 className="font-semibold text-[18px]">Nos articles</h3>
           <RiMenuFold3Fill
-            className="md:hidden text-orange3 font-semibold text-[25px]"
+            className="md:hidden text-amber-500 font-semibold text-[25px]"
             onClick={() => openDrawer()}
           />
         </div>
@@ -105,7 +105,7 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
 
                   {/* Favorite Button (top-right) */}
                   <div
-                    className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-2 transition-all duration-300 hover:bg-[#f0701e] hover:text-white hover:scale-110"
+                    className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-2 transition-all duration-300 group  hover:text-white hover:scale-110"
                     onClick={(e) => {
                       e.stopPropagation(); // Prevents navigation on heart click
                       addOrRemoveToFav(e, produit, userInfo, dispatch);
@@ -113,7 +113,7 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
                   >
                     {favorites?.length > 0 &&
                     favorites?.find((res) => res.id === produit?.id) ? (
-                      <ImHeart className="text-lg text-red-500" />
+                      <ImHeart className="text-lg text-amber-500 " />
                     ) : (
                       <CgHeart className="text-lg text-gray-600" />
                     )}
@@ -140,7 +140,7 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
                  "
                 >
                   <div className="">
-                    <p className="md:text-lg font-bold text-orange-600">
+                    <p className="md:text-lg font-bold text-amber-500">
                       {formatNumberWithDots(produit.prixReference)} Fcfa
                     </p>
                     <div className="hidden md:flex items-center text-sm text-gray-500 my-1">

@@ -19,21 +19,24 @@ const SafeLottie = ({ animationData, loop = true, className, ...props }) => {
 
   useEffect(() => {
     const handleError = (error) => {
-      if (error.message?.includes("removeChild") || error.message?.includes("Node")) {
+      if (
+        error.message?.includes("removeChild") ||
+        error.message?.includes("Node")
+      ) {
         console.warn("Lottie DOM error caught and handled:", error);
         setHasError(true);
       }
     };
 
-    window.addEventListener('error', handleError);
-    return () => window.removeEventListener('error', handleError);
+    window.addEventListener("error", handleError);
+    return () => window.removeEventListener("error", handleError);
   }, []);
 
   if (hasError) {
     // Fallback UI for failed Lottie animations
     return (
       <div className={`${className} flex items-center justify-center`}>
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-amber-500"></div>
       </div>
     );
   }

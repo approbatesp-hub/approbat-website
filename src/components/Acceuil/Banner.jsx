@@ -1,17 +1,16 @@
 // src/components/Banner.jsx
 
 import { useNavigate } from "react-router";
-import ImgBanner from "../../assets/Images/bannerImg3.jpg";
+import ImgBanner from "../../assets/Images/bannerImg4.jpg";
 const Banner = () => {
   const navigate = useNavigate();
 
   return (
     <div
-      className="relative w-full h-[400px] md:h-[500px] lg:h-[550px] xl:h-[600px] overflow-hidden before:absolute before:bg-black before:inset-0 before:opacity-50  "
+      className="relative w-full h-[420px] md:h-[500px] lg:h-[550px] xl:h-[650px] overflow-hidden before:absolute before:bg-black before:inset-0 before:opacity-50 bg-[50%_40%] "
       style={{
         backgroundImage: `url(${ImgBanner})`, // use the imported variable
         backgroundSize: "cover",
-        backgroundPosition: "50% 20%", // Adjust to your needs
         backgroundRepeat: "no-repeat",
       }}
     >
@@ -26,7 +25,7 @@ const Banner = () => {
           </p>
           <button
             onClick={() => navigate("/boutique")}
-            className="bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105"
+            className="bg-amber-500 hover:bg-amber-600 text-white font-semibold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg transform hover:scale-105"
           >
             Découvrir nos produits
           </button>

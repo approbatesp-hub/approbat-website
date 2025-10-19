@@ -88,7 +88,7 @@ const AMAdresse = () => {
           to="/profil/adresse"
           className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
         >
-          <FaArrowCircleLeft className="text-2xl text-orange-500" />
+          <FaArrowCircleLeft className="text-2xl text-amber-500" />
         </Link>
         <div>
           <h1 className="text-xl lg:text-2xl font-bold text-gray-900 flex items-center gap-3">
@@ -191,8 +191,8 @@ const AMAdresse = () => {
             <button
               type="submit"
               disabled={!isFormValid || isLoading}
-              className="flex items-center justify-center gap-2 bg-orange-500 text-white 
-                       px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-orange-600 
+              className="flex items-center justify-center gap-2 bg-amber-500 text-white 
+                       px-6 py-2 md:py-3 rounded-lg font-semibold hover:bg-amber-600 
                        disabled:bg-gray-400 disabled:cursor-not-allowed
                        transition-all duration-200 shadow-lg hover:shadow-xl"
             >

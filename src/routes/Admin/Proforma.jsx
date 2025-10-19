@@ -136,7 +136,7 @@ const Proforma = () => {
                           <td className="px-2 md:px-6 py-4 whitespace-nowrap text-sm">
                             <button
                               onClick={() => handleGeneratePDF(el)}
-                              className="text-red-500 hover:text-red-700 transition-colors"
+                              className="text-amber-500 hover:text-amber-600 transition-colors"
                               title="Télécharger PDF"
                             >
                               <FaFilePdf className="text-2xl" />
@@ -145,7 +145,7 @@ const Proforma = () => {
                           <td className="px-2 md:px-6 py-4 whitespace-nowrap text-sm">
                             <button
                               onClick={() => deleteFacture(el.id)}
-                              className="text-gray-500 hover:text-red-500 transition-colors"
+                              className="text-gray-500 hover:text-amber-500 transition-colors"
                               title="Supprimer facture"
                             >
                               <FaDeleteLeft className="text-2xl" />

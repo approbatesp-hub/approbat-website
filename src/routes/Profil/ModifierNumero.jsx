@@ -34,7 +34,6 @@ const ModifierNumero = () => {
         dispatch(connexion({ ...userInfo, numero }));
         toast.success("Numéro changé avec succès ✅");
       } catch (error) {
-        toast.dismiss(toastId);
         toast.error(error.message);
       }
     }
@@ -101,8 +100,8 @@ const ModifierNumero = () => {
         <button
           type="submit"
           disabled={isLoading || !numero}
-          className="w-full bg-gradient-to-r  from-orange-500 to-orange-600 text-white 
-                   py-2 md:py-3 px-3 md:px-6 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 
+          className="w-full bg-gradient-to-br  from-amber-400 to-amber-500 text-white 
+                   py-2 md:py-3 px-3 md:px-6 rounded-lg font-semibold hover:from-amber-500 hover:to-amber-500 
                    disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed
                    transition-all duration-200 flex items-center justify-center gap-2
                    shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"

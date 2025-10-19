@@ -7,6 +7,8 @@ import { RiProductHuntFill, RiCoupon3Fill, RiBillFill } from "react-icons/ri";
 import { BiSolidMessageSquareAdd } from "react-icons/bi";
 import { PiUsersFourFill } from "react-icons/pi";
 import { BsFillBoxSeamFill } from "react-icons/bs";
+import { HiDocumentText } from "react-icons/hi2";
+import { BsPenFill } from "react-icons/bs";
 
 const AdminLayout = () => {
   // ✅ changement 1 : sidebar réduite par défaut
@@ -15,6 +17,11 @@ const AdminLayout = () => {
   const adminRoutes = [
     { path: "/admin", icon: <IoHome />, label: "Tableau de bord" },
     { path: "/admin/produits", icon: <RiProductHuntFill />, label: "Produits" },
+    {
+      path: "/admin/articles",
+      icon: <HiDocumentText />,
+      label: "Articles",
+    },
     {
       path: "/admin/ajouter",
       icon: <BiSolidMessageSquareAdd />,
@@ -32,16 +39,23 @@ const AdminLayout = () => {
       label: "Utilisateurs",
     },
     { path: "/admin/proforma", icon: <RiBillFill />, label: "Proforma" },
+    {
+      path: "/admin/blogAdmin",
+      icon: <BsPenFill />,
+      label: "Rédiger article",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-[#f0f0f0] ">
-        <div className="flex items-center justify-between  px-3 md:px-10 p-4">
+        <div className="flex items-center justify-between  px-3 md:px-10 p-2">
           <Link to="/" className="flex items-center gap-3">
-            <img src={Logo} alt="Approbat" className="w-10 h-10" />
-            <span className="text-xl font-bold text-orange">Approbat</span>
+            <img src={Logo} alt="Approbat" className="w-12 h-12" />
+            <span className="text-xl font-bold text-amber-500">
+              Approbat Services
+            </span>
           </Link>
 
           <div className="gap-4">

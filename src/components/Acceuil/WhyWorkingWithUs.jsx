@@ -9,7 +9,7 @@ const WhyWorkingWithUs = () => {
       icon: <FaLock className="text-white text-2xl" />,
       title: "Paiement sécurisé",
       desc: "Règlement à la livraison — zéro risque.",
-      color: "#f0701e", // orange
+      color: "#FE9900", // orange
     },
     {
       icon: <FaTruck className="text-white text-2xl" />,

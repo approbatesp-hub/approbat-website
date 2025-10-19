@@ -82,7 +82,7 @@ const EnregistrezVous = () => {
 
         {/* Form Container */}
         <div className="">
-          <div className="text-center mb-4 lg:mb-8 bg-gradient-to-r from-orange-500 to-red-500  ">
+          <div className="text-center mb-4 lg:mb-8 bg-gradient-to-br from-amber-400 to-amber-500  ">
             <div className="flex  items-center justify-center space-x-2 ">
               <h3 className="text-xl md:text-2xl  font-bold text-white lg:mt-5 mt-2 mb-1 lg:mb-3 ">
                 Créer un compte
@@ -116,7 +116,7 @@ const EnregistrezVous = () => {
                       type="text"
                       required
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg 
-                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 
+                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-amber-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="Votre nom complet"
                     />
@@ -143,7 +143,7 @@ const EnregistrezVous = () => {
                       type="email"
                       required
                       className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg 
-                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 
+                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-amber-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="votre@email.com"
                     />
@@ -170,7 +170,7 @@ const EnregistrezVous = () => {
                       type={showPassword ? "text" : "password"}
                       required
                       className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
-                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-orange-500 
+                    placeholder-gray-400 placeholder:text-sm lg:placeholder:text-base focus:outline-none focus:ring-2 focus:ring-amber-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="Créez un mot de passe"
                     />
@@ -208,7 +208,7 @@ const EnregistrezVous = () => {
                       required
                       onChange={(e) => setConfirmedPassword(e.target.value)}
                       className="block w-full placeholder:text-sm lg:placeholder:text-base pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
-                    placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                    placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 
                     focus:border-transparent transition-all duration-200"
                       placeholder="Confirmez le mot de passe"
                     />
@@ -235,11 +235,11 @@ const EnregistrezVous = () => {
                   htmlFor="phoneNumber"
                   className=" text-sm font-medium text-gray-700 flex items-center gap-2"
                 >
-                  <BsTelephone className="text-orange-500" />
+                  <BsTelephone className="text-amber-500" />
                   Votre numéro actif
                 </label>
                 <div className="relative">
-                  <div className="absolute bg-orange rounded-l-md text-white flex inset-y-0 left-0 pl-3 items-center pointer-events-none pr-2 gap-1">
+                  <div className="absolute bg-amber-500 rounded-l-md text-white flex inset-y-0 left-0 pl-3 items-center pointer-events-none pr-2 gap-1">
                     <BsTelephone className="h-4 w-4 " />
                     <span className="text-[14px] font-medium ">+225</span>
                   </div>
@@ -251,7 +251,7 @@ const EnregistrezVous = () => {
                     type="tel"
                     required
                     className="block w-full pl-[80px] pr-3 py-3 border border-gray-300 rounded-lg 
-                  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 
                   focus:border-transparent placeholder:text-sm lg:placeholder:text-base transition-all duration-200"
                     placeholder="XX XX XX XX"
                   />
@@ -262,9 +262,9 @@ const EnregistrezVous = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full hoverBtn cursor-pointer text-white py-2 lg:py-3 px-4 
+                className="w-full bg-gradient-to-br from-amber-400 to-amber-500 cursor-pointer text-white py-2 lg:py-3 px-4 
               rounded-lg font-medium 
-              focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 
+              focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 
               transition-all duration-200 transform hover:-translate-y-0.5 
               disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
@@ -284,7 +284,7 @@ const EnregistrezVous = () => {
                   Vous avez déjà un compte ?{" "}
                   <a
                     href="/connexion"
-                    className="font-medium text-orange hover:text-orange-500 transition-colors duration-200 underline"
+                    className="font-medium text-amber hover:text-amber-500 transition-colors duration-200 underline"
                   >
                     Se connecter
                   </a>

@@ -15,7 +15,7 @@ const Addresse = () => {
           </h3>
           <Link
             to={"/profil/adresse/creer"}
-            className="mt-3 sm:mt-0 px-5 py-2 text-sm font-semibold text-white bg-orange-600 rounded-lg shadow-md hover:bg-orange-700 transition duration-300 ease-in-out uppercase flex items-center gap-2 "
+            className="mt-3 sm:mt-0 px-5 py-2 text-sm font-semibold text-white bg-amber-500 rounded-lg shadow-md hover:bg-amber-600 transition duration-300 ease-in-out uppercase flex items-center gap-2 "
           >
             <span className="text-white">
               <BsPlusCircleFill className="text-lg" />

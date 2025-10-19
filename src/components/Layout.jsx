@@ -57,8 +57,8 @@ const ProfileNavLink = ({ to, icon, text }) => (
     className={({ isActive }) =>
       `flex items-center gap-4 px-2 md:px-4 py-2 md:py-3 rounded-md transition-colors duration-200 text-sm font-medium ${
         isActive
-          ? "bg-orange-100 text-orange-600"
-          : "text-gray-600 hover:bg-gray-100 hover:text-orange-600"
+          ? "bg-amber-100 text-amber-500"
+          : "text-gray-600 hover:bg-gray-100 hover:text-amber-600"
       }`
     }
   >
@@ -131,7 +131,7 @@ const Layout = () => {
                 <hr className="my-3" />
                 <button
                   onClick={signOutUser}
-                  className="flex items-center gap-4 w-full px-4 py-3 rounded-md text-sm font-medium text-red-600 hover:bg-red-50 transition-colors duration-200"
+                  className="flex items-center gap-4 w-full px-4 py-3 rounded-md text-sm font-medium text-amber-500 hover:bg-red-50 transition-colors duration-200"
                 >
                   <span className="text-2xl">
                     <BiLogOutCircle />

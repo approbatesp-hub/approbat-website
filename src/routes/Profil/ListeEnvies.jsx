@@ -132,7 +132,7 @@ const ListeEnvies = () => {
         </p>
         <Link
           to="/boutique"
-          className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-full font-medium transition-colors shadow-md hover:shadow-lg"
+          className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-6 py-3 rounded-full font-medium transition-colors shadow-md hover:shadow-lg"
         >
           <IoIosArrowBack className="text-lg" />
           Retourner faire vos achats
@@ -192,7 +192,7 @@ const ListeEnvies = () => {
                   </h3>
                 )}
                 {product.status === "available" ? (
-                  <p className="text-xl font-bold text-orange-600 mt-1 text-nowrap">
+                  <p className="text-xl font-bold text-amber-500 mt-1 text-nowrap">
                     {formatNumberWithDots(product.prixReference)} FCFA
                   </p>
                 ) : (
@@ -206,7 +206,7 @@ const ListeEnvies = () => {
                 {product.status === "available" ? (
                   <button
                     onClick={() => navigateProduct(product)}
-                    className="flex-1 sm:flex-none order-2 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors whitespace-nowrap"
+                    className="flex-1 sm:flex-none order-2 bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-lg transition-colors whitespace-nowrap"
                   >
                     Acheter
                   </button>

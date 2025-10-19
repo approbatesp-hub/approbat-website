@@ -116,62 +116,6 @@ const VoirPlus = ({ allProduits }) => {
               >
                 {allOtherProducts?.map((produit, index) => (
                   <SwiperSlide className="relative slide-item" key={index}>
-                    {/* <div
-                  onClick={() => navigateProduct(produit)}
-                  key={produit.id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-md  "
-                >
-                  <div className="relative overflow-hidden">
-                    <div className="absolute top-3 left-3 z-10">
-                      <span className="bg-orange/90 text-white text-xs capitalize font-medium px-2 py-1 rounded-full">
-                        {produit?.fournisseur}
-                      </span>
-                    </div>
-
-                    <div className=" h-40  md:h-[160px] w-full relative overflow-hidden">
-                      <img
-                        className="w-full h-full rounded-t-xl  object-cover transition-transform duration-500 group-hover:scale-105"
-                        src={produit.images[0]}
-                        alt={produit.nom}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="p-4  ">
-                    <h3 className="font-medium capitalize text-gray-900 mb-2 line-clamp-2 ">
-                      {produit.nom}
-                    </h3>
-
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-lg font-bold text-orange-600">
-                          {formatNumberWithDots(produit.prixReference)} Fcfa
-                        </p>
-                        <div className="flex items-center text-sm text-gray-500 mt-1">
-                          <svg
-                            className="w-4 h-4 mr-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
-                            />
-                          </svg>
-                          Min: {produit.quantiteMinimale}
-                        </div>
-                      </div>
-
-                      <button className="bg-gray-100 text-gray-700 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-gray-200">
-                        Voir
-                      </button>
-                    </div>
-                  </div>
-                </div> */}
-
                     <div
                       onClick={() => navigateProduct(produit)}
                       key={produit.id}
@@ -231,7 +175,7 @@ const VoirPlus = ({ allProduits }) => {
                  "
                         >
                           <div>
-                            <p className="md:text-lg font-bold text-orange-600">
+                            <p className="md:text-lg font-bold text-amber-500">
                               {formatNumberWithDots(produit.prixReference)} Fcfa
                             </p>
                             <div className="hidden md:flex items-center text-sm text-gray-500 mt-1">
@@ -268,13 +212,13 @@ const VoirPlus = ({ allProduits }) => {
               >
                 <button
                   ref={prevRef}
-                  className="arrowStyle  bg-orange3 mr-[10px]  "
+                  className="arrowStyle  bg-amber-600 mr-[10px]  "
                 >
                   <HiArrowLeft className="text-sm" />
                 </button>
                 <button
                   ref={nextRef}
-                  className="arrowStyle ml-[10px] bg-orange3 "
+                  className="arrowStyle ml-[10px] bg-amber-600 "
                 >
                   <HiArrowRight className="text-sm" />
                 </button>

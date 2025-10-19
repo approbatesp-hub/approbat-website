@@ -52,7 +52,7 @@ const BoutiqueLeftSide = ({
           <h3 className=" font-medium text-[18px]">CATEGORIES</h3>
           <BiReset
             onClick={() => resetProduits()}
-            className="hover:text-orange3 transition-all duration-500 cursor-pointer text-[25px] rounded-md mx-2 "
+            className="hover:text-amber-600 transition-all duration-500 cursor-pointer text-[25px] rounded-md mx-2 "
           />
         </div>
         <div>
@@ -151,7 +151,7 @@ const BoutiqueLeftSide = ({
             PRIX
           </h3>
           <p
-            className="hover:bg-orange3 hover:text-white transition-all duration-500 cursor-pointer px-3 py-2 rounded-md"
+            className="hover:bg-amber-600 hover:text-white transition-all duration-500 cursor-pointer px-3 py-2 rounded-md"
             onClick={onApplyFilters} // ✅ Only apply on OK
           >
             OK
@@ -200,13 +200,13 @@ const BoutiqueLeftSide = ({
         <div className="  max-w-[280px] min-h-[130vh] shadow-md rounded-md sticky h-fit ">
           <div className="flex items-center justify-between px-5 pt-5  mb-[20px]">
             <FaWindowClose
-              className="text-[22px] text-orange3"
+              className="text-[22px] text-amber-600"
               onClick={closeDrawer}
             />
             <h3 className=" font-medium text-base">CATEGORIES</h3>
             <BiReset
               onClick={() => resetProduits()}
-              className="hover:text-orange3 transition-all duration-500 cursor-pointer text-[22px] rounded-md mx-2 "
+              className="hover:text-amber-600 transition-all duration-500 cursor-pointer text-[22px] rounded-md mx-2 "
             />
           </div>
           <div>
@@ -311,7 +311,7 @@ const BoutiqueLeftSide = ({
               PRIX
             </h3>
             <p
-              className="hover:bg-orange3 hover:text-white transition-all duration-500 cursor-pointer px-3 py-2 rounded-md"
+              className="hover:bg-amber-600 hover:text-white transition-all duration-500 cursor-pointer px-3 py-2 rounded-md"
               onClick={onApplyFilters} // ✅ Only apply on OK
             >
               OK

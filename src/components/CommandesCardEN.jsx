@@ -43,7 +43,7 @@ const CommandesCardEN = ({ allCommandes }) => {
                 </p>
               </div>
               <div className="text-right">
-                <p className="font-bold text-lg text-orange-600">
+                <p className="font-bold text-lg text-amber-500">
                   {formatNumberWithDots(el.montantTotal)} Fcfa
                 </p>
                 <p className="text-xs text-gray-500 mt-1">ID: {el.id}</p>
@@ -84,7 +84,7 @@ const CommandesCardEN = ({ allCommandes }) => {
                       </p>
                     )}
                     <div className="mt-2 inline-block">
-                      <span className="bg-orange-100 text-orange-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                      <span className="bg-amber-100 text-amber-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
                         En cours de livraison
                       </span>
                     </div>

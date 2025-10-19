@@ -61,7 +61,7 @@ const DashBoardClient = () => {
             </h3>
             <Link
               to="/profil/adresse/creer"
-              className="flex items-center gap-2 bg-orange-600 text-white px-3 py-1 rounded-lg hover:bg-orange-600 transition-colors"
+              className="flex items-center gap-2 bg-amber-500 text-white px-3 py-1 rounded-lg hover:bg-amber-600 transition-colors"
             >
               <TiEdit className="text-lg" />
               <span className="text-sm font-medium">Modifier</span>
@@ -104,7 +104,7 @@ const DashBoardClient = () => {
               <p className="text-gray-600 mb-4">Aucune adresse enregistrée</p>
               <Link
                 to="/profil/adresse/creer"
-                className="inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700 transition-colors text-sm font-medium"
+                className="inline-flex items-center gap-2 bg-amber-500 text-white px-4 py-2 rounded-lg hover:bg-amber-600 transition-colors text-sm font-medium"
               >
                 <TiEdit className="text-lg" />
                 Ajouter une adresse

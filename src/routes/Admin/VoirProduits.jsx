@@ -207,7 +207,7 @@ const VoirProduits = () => {
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center text-red-600">
+        <div className="text-center text-amber-600">
           <p>Erreur lors du chargement des produits</p>
         </div>
       </div>
@@ -233,7 +233,9 @@ const VoirProduits = () => {
         <div className="bg-white rounded-xl shadow-sm p-3 md:p-6 mb-6">
           <div
             className={`flex flex-col ${
-              isCollapsed ? "sm:flex-row" : "sm:flex-col"
+              isCollapsed
+                ? "sm:flex-row lg:flex-row"
+                : "sm:flex-col lg:flex-row"
             } gap-2 md:gap-4`}
           >
             <div className="flex-1 relative">
@@ -324,7 +326,7 @@ const ProductCard = ({ product, onEdit, onVisibility, onDelete }) => (
           className={`px-2 py-1 rounded-full text-xs font-medium ${
             product.enStock
               ? "bg-green-100 text-green-800"
-              : "bg-red-100 text-red-800"
+              : "bg-amber-100 text-amber-800"
           }`}
         >
           {product.enStock ? "En stock" : "Hors stock"}
@@ -367,7 +369,7 @@ const ProductCard = ({ product, onEdit, onVisibility, onDelete }) => (
         </div>
         <button
           onClick={() => onDelete(product)}
-          className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
+          className="p-2 text-amber-500 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
           title="Supprimer"
         >
           <FiTrash2 className="text-lg" />

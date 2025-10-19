@@ -90,7 +90,7 @@ const Search = () => {
   // 🔹 Error State
   if (isError) {
     return (
-      <div className="flex flex-col items-center justify-center h-screen text-red-500">
+      <div className="flex flex-col items-center justify-center h-screen text-amber-500">
         <p>Erreur lors de la recherche</p>
         <p className="text-sm mt-2">{error?.message}</p>
       </div>
@@ -98,7 +98,7 @@ const Search = () => {
   }
 
   return (
-    <div className="md:max-w-[90%] flex flex-col flex-1 mx-auto pt-[140px] pb-[60px] md:py-[120px] px-4">
+    <div className="md:max-w-[85%] w-full flex flex-col flex-1 mx-auto pt-[140px] pb-[60px] md:py-[120px] px-4">
       {/* Header */}
       <div className="bg-white border border-[#E5E5E5] rounded-xl p-2 mb-4">
         <div className="text-center">
@@ -121,8 +121,8 @@ const Search = () => {
 
       {/* Product Grid */}
       {currentItems.length > 0 && (
-        <div className="border border-[#E5E5E5] rounded-xl p-3 md:p-6 bg-white">
-          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-[10px] md:gap-[20px] mb-[60px]">
+        <div className="border h-full border-[#E5E5E5] rounded-xl p-3 md:p-6 bg-white">
+          <div className="grid grid-cols-2  h-full lg:grid-cols-5 xl:grid-cols-6 gap-[10px] md:gap-[20px] mb-[60px]">
             {currentItems.map((produit) => {
               const partner = partners.find(
                 (p) => p.name === produit?.fournisseur?.toUpperCase()
@@ -164,7 +164,7 @@ const Search = () => {
                         }}
                       >
                         {favorites?.some((fav) => fav.id === produit.id) ? (
-                          <ImHeart className="text-lg text-red-500" />
+                          <ImHeart className="text-lg text-amber-500" />
                         ) : (
                           <CgHeart className="text-lg text-gray-600" />
                         )}
@@ -188,7 +188,7 @@ const Search = () => {
                     </div>
 
                     <div className="mt-auto md:mt-0">
-                      <p className="md:text-lg font-bold text-orange-600">
+                      <p className="md:text-lg font-bold text-amber-500">
                         {formatNumberWithDots(produit.prixReference)} Fcfa
                       </p>
                       <div className="hidden md:flex items-center text-sm text-gray-500 mt-1">

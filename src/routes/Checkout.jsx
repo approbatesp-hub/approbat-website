@@ -283,7 +283,9 @@ const Checkout = () => {
           {/* Header */}
           <div className="mb-2 flex flex-col items-center">
             <img src={Logo} className="w-22 " alt="Approbat Logo" />
-            <h1 className="text-3xl font-bold text-gray-800">Approbat</h1>
+            <h1 className="text-3xl font-bold text-gray-800">
+              Approbat Services
+            </h1>
             <p className="text-gray-500 my-2 ">
               Finalisez votre commande en remplissant les informations
               ci-dessous.
@@ -382,7 +384,7 @@ const Checkout = () => {
                   value={adresse}
                   onChange={(e) => setAdresse(e.target.value)}
                   type="text"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
                   placeholder="Ex: Rue des jardins, porte 123"
                 />
               </div>
@@ -393,9 +395,9 @@ const Checkout = () => {
               <h3 className="text-xl font-semibold text-gray-700 mb-4 border-b pb-2">
                 Option de paiement
               </h3>
-              <div className="p-4 border-2 border-orange-500 rounded-lg bg-orange-50">
+              <div className="p-4 border-2 border-amber-500 rounded-lg bg-amber-50">
                 <div className="flex items-center gap-4">
-                  <GiTakeMyMoney className="text-3xl text-orange-600" />
+                  <GiTakeMyMoney className="text-3xl text-amber-600" />
                   <div>
                     <p className="font-semibold text-gray-800">
                       Paiement cash à la livraison
@@ -412,14 +414,14 @@ const Checkout = () => {
             <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 pt-0 md:pt-4 pb-5 md:pb-0">
               <Link
                 to="/cart"
-                className="flex items-center gap-2 text-orange-600 hover:text-orange-800 font-medium transition-colors"
+                className="flex items-center gap-2 text-amber-600 hover:text-amber-800 font-medium transition-colors"
               >
                 <IoIosArrowBack />
                 <span>Retour au panier</span>
               </Link>
               <button
                 type="submit"
-                className="w-full sm:w-auto bg-orange-500 text-white font-bold py-3 px-8 rounded-md hover:bg-orange-600 transition-all duration-300 uppercase shadow-lg"
+                className="w-full sm:w-auto bg-amber-500 text-white font-bold py-3 px-8 rounded-md hover:bg-amber-600 transition-all duration-300 uppercase shadow-lg"
               >
                 {userInfo.role === "administrateur"
                   ? "Valider Proforma"
@@ -481,7 +483,7 @@ const Checkout = () => {
               value={coupon}
               onChange={(e) => setCoupon(e.target.value)}
               placeholder="Code promo"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-orange-500 focus:border-orange-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-amber-500 focus:border-amber-500"
             />
             <button
               type="submit"
@@ -512,7 +514,7 @@ const Checkout = () => {
 
           <div className="flex justify-between items-center mt-4 pt-4">
             <span className="text-xl font-bold text-gray-900">Total</span>
-            <span className="text-2xl font-bold text-orange-600">
+            <span className="text-2xl font-bold text-amber-500">
               {couponApplied
                 ? formatNumberWithDots(newTotal)
                 : formatNumberWithDots(commande?.total)}{" "}

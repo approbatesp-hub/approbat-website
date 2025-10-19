@@ -7,13 +7,15 @@ import { FaTimes } from "react-icons/fa"; // cleaner icon
 import { useEffect, useState } from "react";
 import Logo from "../assets/Images/logo-no-bg.png";
 import { useSelector } from "react-redux";
-import BackToTop from "./Acceuil/BackToTop";
+// import BackToTop from "./Acceuil/BackToTop";
 import "rc-drawer/assets/index.css"; // ensures base styles
 import { LuCircleUser } from "react-icons/lu";
 import { FiShoppingCart } from "react-icons/fi";
 import { RiLoginCircleLine } from "react-icons/ri";
 import { TiContacts } from "react-icons/ti";
 import { BsClipboard2Data } from "react-icons/bs";
+import DevisButton from "./DevisButton";
+import { HiDocumentText } from "react-icons/hi2";
 
 const FirstLayout = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -52,14 +54,16 @@ const FirstLayout = () => {
         handler={false} // hides default handler
       >
         {/* Drawer Header */}
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 relative">
+        <div className="bg-gradient-to-br from-amber-400 to-amber-400 text-white p-6 relative">
           <Link
             to="/"
-            className="flex items-center gap-3"
+            className="flex flex-col items-center "
             onClick={closeDrawer}
           >
-            <img src={Logo} alt="Approbat Logo" className="w-10 h-10" />
-            <span className="text-lg font-bold tracking-tight">Approbat</span>
+            <img src={Logo} alt="Approbat Logo" className="w-12 h-12" />
+            <span className="text- text-center font-bold tracking-tight">
+              Approbat Services
+            </span>
           </Link>
           <button
             onClick={closeDrawer}
@@ -80,7 +84,7 @@ const FirstLayout = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 gap-2  py-3 rounded-xl text-nowrap transition-all font-medium ${
                       isActive
-                        ? "bg-orange-100 text-orange-700 border-l-4 border-orange-500"
+                        ? "bg-amber-100 text-amber-700 border-l-4 border-amber-500"
                         : "text-gray-700 hover:bg-gray-100"
                     }`
                   }
@@ -100,8 +104,8 @@ const FirstLayout = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 gap-2 py-3 rounded-xl text-nowrap transition-all font-medium ${
                       isActive
-                        ? "bg-orange-100 text-orange-700 border-l-4 border-orange-500"
-                        : "text-gray-700 "
+                        ? "bg-amber-100 text-amber-700 border-l-4 border-amber-500"
+                        : "text-gray-700 hover:bg-gray-100 "
                     }`
                   }
                   onClick={closeDrawer}
@@ -113,31 +117,14 @@ const FirstLayout = () => {
                 </NavLink>
               </li>
             )}
-            <li className=" ">
-              <NavLink
-                to="/boutique"
-                className={({ isActive }) =>
-                  `flex items-center px-4 gap-2  py-3 rounded-xl transition-all text-nowrap font-medium ${
-                    isActive
-                      ? "bg-orange-100 text-orange-700 border-l-4 border-orange-500"
-                      : "text-gray-700 "
-                  }`
-                }
-                onClick={closeDrawer}
-              >
-                <span>
-                  <FiShoppingCart />
-                </span>
-                Boutique
-              </NavLink>
-            </li>
+
             <li className="">
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
                   `flex items-center px-4 gap-2   py-3 rounded-xl text-nowrap transition-all font-medium ${
                     isActive
-                      ? "bg-orange-100 text-orange-700 border-l-4 border-orange-500"
+                      ? "bg-amber-100 text-amber-700 border-l-4 border-amber-500"
                       : "text-gray-700 hover:bg-gray-100"
                   }`
                 }
@@ -149,6 +136,42 @@ const FirstLayout = () => {
                 Contact
               </NavLink>
             </li>
+            <li className=" ">
+              <NavLink
+                to="/blog"
+                className={({ isActive }) =>
+                  `flex items-center px-4 gap-2  py-3 rounded-xl transition-all text-nowrap font-medium ${
+                    isActive
+                      ? "bg-amber-100 text-amber-700 border-l-4 border-amber-500"
+                      : "text-gray-700 hover:bg-gray-100 "
+                  }`
+                }
+                onClick={closeDrawer}
+              >
+                <span>
+                  <HiDocumentText />
+                </span>
+                Articles
+              </NavLink>
+            </li>
+            <li className=" ">
+              <NavLink
+                to="/boutique"
+                className={({ isActive }) =>
+                  `flex items-center px-4 gap-2  py-3 rounded-xl transition-all text-nowrap font-medium ${
+                    isActive
+                      ? "bg-amber-100 text-amber-700 border-l-4 border-amber-500"
+                      : "text-gray-700 hover:bg-gray-100 "
+                  }`
+                }
+                onClick={closeDrawer}
+              >
+                <span>
+                  <FiShoppingCart />
+                </span>
+                Boutique
+              </NavLink>
+            </li>
             {!userInfo && (
               <li>
                 <NavLink
@@ -156,7 +179,7 @@ const FirstLayout = () => {
                   className={({ isActive }) =>
                     `flex items-center px-4 gap-2  py-3 rounded-xl text-nowrap transition-all font-medium ${
                       isActive
-                        ? "bg-orange-100 text-orange-700 border-l-4 border-orange-500"
+                        ? "bg-amber-100 text-amber-700 border-l-4 border-amber-500"
                         : "text-gray-700 hover:bg-gray-100"
                     }`
                   }
@@ -176,7 +199,10 @@ const FirstLayout = () => {
       <Header openDrawer={openDrawer} />
       <main className="flex-grow flex flex-col">
         <Outlet />
-        <BackToTop />
+        {/* <BackToTop /> */}
+        <div className="fixed bottom-5 right-5  md:bottom-10 md:right-10 lg:bottom-12 lg:right-15  z-20 ">
+          <DevisButton />
+        </div>
       </main>
       <Footer />
       <ScrollToTop />

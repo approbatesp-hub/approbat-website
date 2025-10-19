@@ -50,6 +50,22 @@ export async function recuperUtilisateurs() {
   }
 }
 
+export const recupererArticlesAdmin = async () => {
+  try {
+    const { data, error } = await supabase
+      .from("Blogs")
+      .select("*")
+      .order("created_at", { ascending: false }); // "asc" = true
+
+    if (error) throw error;
+
+    return data;
+  } catch (error) {
+    toast.error(error.message);
+    return [];
+  }
+};
+
 export const getCoupons = async () => {
   try {
     const { data, error } = await supabase

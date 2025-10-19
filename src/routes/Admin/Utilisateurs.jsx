@@ -71,7 +71,7 @@ const Utilisateurs = () => {
   if (error) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="text-center text-red-600">
+        <div className="text-center text-amber-600">
           <p>Une erreur s'est produite lors de la récupération des données</p>
         </div>
       </div>
@@ -217,7 +217,7 @@ const Utilisateurs = () => {
                         ) : (
                           <button
                             onClick={() => removeAdmin(user.id)}
-                            className="flex items-center space-x-2 text-red-600 hover:text-red-700 transition-colors cursor-pointer"
+                            className="flex items-center space-x-2 text-amber-500 hover:text-amber-600 transition-colors cursor-pointer"
                             title="Retirer comme Admin"
                           >
                             <MdRemoveModerator className="text-xl" />

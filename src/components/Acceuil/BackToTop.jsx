@@ -35,7 +35,7 @@ const BackToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="backToTop bg-orange-500 tooltip"
+          className="backToTop bg-amber-500 tooltip"
           data-tip="Haut de page"
         >
           <TbArrowBigUpLines className="text-[20px] md:text-[30px] " />

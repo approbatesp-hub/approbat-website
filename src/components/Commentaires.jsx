@@ -276,7 +276,7 @@ const Commentaires = ({ produit, allProduit, setProduit }) => {
         <div className="bg-gray-50 md:w-[20%] lg:w-[30%] xl:w-[25%] rounded-xl p-6">
           <div className="text-center w-full mb-6">
             <p className="text-gray-600 mb-2">Moyenne du produit</p>
-            <p className="text-4xl font-bold text-orange-500">{rating}</p>
+            <p className="text-4xl font-bold text-amber-500">{rating}</p>
             <Rating
               readOnly
               style={{ maxWidth: 250, margin: "0 auto" }}
@@ -293,7 +293,7 @@ const Commentaires = ({ produit, allProduit, setProduit }) => {
                 <span className="text-gray-700 w-12">{note} ⭐</span>
                 <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-orange-500 rounded-full"
+                    className="h-full bg-amber-500 rounded-full"
                     style={{ width: `${percent}%` }}
                   />
                 </div>
@@ -344,7 +344,7 @@ const Commentaires = ({ produit, allProduit, setProduit }) => {
               <input
                 type="submit"
                 value={jModifier ? "MODIFIER" : "ENREGISTRER"}
-                className="hoverBtn  w-full  px-4 py-2 text-white cursor-pointer hover:bg-bleu4 transition-all duration-500  font-medium"
+                className="bg-gradient-to-br from-amber-400 to-amber-500 rounded-md  w-full  px-4 py-2 text-white cursor-pointer hover:bg-bleu4 transition-all duration-500  font-medium"
               />
             </div>
           </form>
@@ -411,14 +411,14 @@ const Commentaires = ({ produit, allProduit, setProduit }) => {
                         data-tip="Modifier"
                         onClick={() => envoyerAModifier(commentaire)}
                       >
-                        <TbEdit className=" text-orange-600 text-[30px]  " />
+                        <TbEdit className=" text-amber-600 text-[30px]  " />
                       </button>
                       <button
                         data-tip="Supprimer"
                         className="cursor-pointer tooltip  "
                       >
                         <FaDeleteLeft
-                          className="text-[30px] text-orange-600 "
+                          className="text-[30px] text-amber-600 "
                           onClick={() => supprimerAvis(commentaire.id)}
                         />
                       </button>

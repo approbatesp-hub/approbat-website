@@ -167,7 +167,7 @@ const Boutique = () => {
             <div className="flex items-center justify-between border-b border-[#E5E5E5] md:border-none pb-2">
               <h3 className="font-semibold text-[18px]">Nos articles</h3>
               <RiMenuFold3Fill
-                className="md:hidden text-orange3 font-semibold text-[25px]"
+                className="md:hidden text-amber-600 font-semibold text-[25px]"
                 onClick={openDrawer}
               />
             </div>
@@ -180,7 +180,7 @@ const Boutique = () => {
           <div className="flex h-full flex-col items-center justify-center border border-[#E5E5E5] rounded-md p-6 shadow-sm">
             <p className="text-bleu4 text-center text-sm md:text-lg font-medium mb-4">
               Aucun produit trouvé pour cette catégorie <br />
-              <span className="text-orange3">
+              <span className="text-amber-600">
                 {categorieSelectionner?.replace(/^GO_/, "").replace(/^SO_/, "")}
               </span>
             </p>

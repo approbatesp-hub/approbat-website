@@ -12,9 +12,9 @@ const DevisButton = ({ className }) => {
   return (
     <button
       onClick={() => window.open(whatsappURL, "_blank")}
-      className={`${className} flex items-center justify-center rounded-lg flex-1 bg-green-600 text-white font-medium shadow-md py-1 gap-2 hover:bg-green-500 duration-300 transition-all text-[14px] md:text-base `}
+      className={`${className} flex items-center z-50 justify-center rounded-md px-4 flex-1 bg-linear-to-br from-amber-400 to-amber-500 text-white font-medium shadow-md py-2 gap-1 hover:bg-amber-700 duration-300 transition-all text-[14px] md:text-base `}
     >
-      <LiaWhatsapp className="text-[35px]" />
+      <LiaWhatsapp className="text-[25px]" />
       <span> Demander un devis</span>
     </button>
   );

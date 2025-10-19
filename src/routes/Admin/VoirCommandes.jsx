@@ -54,7 +54,7 @@ const VoirCommandes = () => {
 
   if (error) {
     return (
-      <div className="text-center py-12 text-red-500">
+      <div className="text-center py-12 text-amber-500">
         Erreur: Impossible de charger les commandes.
       </div>
     );
@@ -72,9 +72,9 @@ const VoirCommandes = () => {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-center px-4">
         <Lottie animationData={ZeroPurchase} loop className="w-48 md:w-64" />
-        <h2 className="text-xl font-semibold text-gray-800 mt-6 mb-2">
+        <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-2">
           Aucune commande trouvée
-        </h2>
+        </h3>
         <p className="text-gray-600 max-w-md">
           Il n'y a aucune commande dans le système pour le moment.
         </p>
@@ -149,7 +149,7 @@ const VoirCommandes = () => {
                   <td className="px-2 md:px-6 py-4 whitespace-nowrap text-sm   ">
                     <button
                       onClick={() => generateOrderPDF(el, Logo)}
-                      className="text-red-500 hover:text-red-700 transition-colors "
+                      className="text-amber-500 hover:text-amber-600 transition-colors "
                       title="Télécharger PDF"
                     >
                       <FaFilePdf className="text-2xl" />

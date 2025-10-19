@@ -104,7 +104,7 @@ const FAQ = () => {
 
         {/* CTA */}
         <div className="mt-8 md:mt-16 text-center p-5 md:p-8 bg-blue-50 rounded-xl border-l-4 border-blue-400 shadow-inner">
-          <p className="text-base md:text-xl font-semibold text-gray-800 mb-4 ">
+          <p className="text-base md:text-xl text-nowrap font-semibold text-gray-800 mb-4 ">
             Votre question n'est pas dans la liste ?
           </p>
           <Link

@@ -49,7 +49,7 @@ const Commandes = () => {
       {/* Header */}
       <div className=" mb-4 md:mb-8">
         <h1 className="text-xl md:text-2xl font-bold text-gray-900 flex items-center gap-3 mb-2">
-          <FiPackage className="text-orange-500" />
+          <FiPackage className="text-amber-500" />
           Mes Commandes
         </h1>
         <p className="text-gray-600">
@@ -67,7 +67,7 @@ const Commandes = () => {
               flex justify-center items-center w-full gap-2 px-4 md:px-6 py-3 rounded-lg font-medium transition-all duration-200
               ${
                 isActive
-                  ? "bg-orange-500 text-white shadow-lg"
+                  ? "bg-amber-500 text-white shadow-lg"
                   : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
               }
             `}

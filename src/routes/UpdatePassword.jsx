@@ -72,7 +72,7 @@ const UpdatePassword = () => {
     <div className="flex items-center justify-center pt-[140px] pb-[50px] md:py-[120px] px-4 h-full  ">
       <div className="max-w-md w-full bg-white rounded-2xl border border-[#E5E7EB] shadow-2xl overflow-hidden">
         {/* Header Section */}
-        <div className="text-center bg-gradient-to-r from-orange-500 to-red-500 p-4">
+        <div className="text-center bg-gradient-to-br from-amber-400 to-amber-500 p-4">
           <h3 className="text-2xl font-bold text-white mt-5 mb-3">
             Définir un Nouveau Mot de Passe
           </h3>
@@ -103,7 +103,7 @@ const UpdatePassword = () => {
                   type={passwordType}
                   required
                   className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
-                            placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                            placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 
                             focus:border-transparent transition-all duration-200"
                   placeholder="Minimum 8 caractères"
                 />
@@ -141,7 +141,7 @@ const UpdatePassword = () => {
                   type={passwordType} // Shares the reveal state with the first input
                   required
                   className="block w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg 
-                            placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 
+                            placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 
                             focus:border-transparent transition-all duration-200"
                   placeholder="Confirmez votre nouveau mot de passe"
                 />
@@ -152,9 +152,9 @@ const UpdatePassword = () => {
             <button
               type="submit"
               disabled={loading || !newPassword || !confirmPassword}
-              className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-4 
-                        rounded-lg font-medium hover:from-orange-600 hover:to-orange-700 
-                        focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 
+              className="w-full bg-gradient-to-br from-amber-400 to-amber-500 text-white py-3 px-4 
+                        rounded-lg font-medium hover:from-amber-500 hover:to-amber-500 
+                        focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 
                         transition-all duration-200 transform hover:-translate-y-0.5 
                         disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
             >

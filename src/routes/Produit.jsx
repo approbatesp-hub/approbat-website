@@ -226,8 +226,8 @@ const Produit = () => {
                         key={index}
                         className={`w-16 h-16 rounded-lg border-2 overflow-hidden transition-all duration-200 ${
                           selectedImage === index
-                            ? "border-orange-500 shadow-md scale-105"
-                            : "border-gray-200 hover:border-orange-300"
+                            ? "border-amber-500 shadow-md scale-105"
+                            : "border-gray-200 hover:border-amber-300"
                         }`}
                         onClick={() => setSelectedImage(index)}
                       >
@@ -252,7 +252,7 @@ const Produit = () => {
                             className="h-[500px] w-full object-cover rounded-lg"
                             alt={produit?.nom || "Produit"}
                           />
-                          <span className="hoverBtn capitalize text-white text-[14px] px-2 rounded-full absolute top-2 left-2">
+                          <span className="bg-amber-500 capitalize text-white text-[14px] px-2 rounded-full absolute top-2 left-2">
                             {produit?.fournisseur || "—"}
                           </span>
                         </Zoom>
@@ -276,8 +276,8 @@ const Produit = () => {
                           key={index}
                           className={`flex-shrink-0 w-16 h-16 rounded-lg border-2 overflow-hidden transition-all duration-200 ${
                             selectedImage === index
-                              ? "border-orange-500 shadow-md scale-105"
-                              : "border-gray-200 hover:border-orange-300"
+                              ? "border-amber-500 shadow-md scale-105"
+                              : "border-gray-200 hover:border-amber-300"
                           }`}
                           onClick={() => setSelectedImage(index)}
                         >
@@ -338,10 +338,10 @@ const Produit = () => {
                   onClick={(e) =>
                     addOrRemoveToFav(e, produit, userInfo, dispatch)
                   }
-                  className="p-2.5 bg-white border border-gray-200 rounded-xl hover:border-orange-400 hover:bg-orange-50 transition-all duration-300 shadow-sm"
+                  className="p-2.5 bg-white border border-gray-200 rounded-xl hover:border-amber-400 hover:bg-amber-50 transition-all duration-300 shadow-sm"
                 >
                   {favorites?.find((res) => res.id === produit?.id) ? (
-                    <ImHeart className="text-xl text-red-500" />
+                    <ImHeart className="text-xl text-amber-500" />
                   ) : (
                     <CgHeart className="text-xl text-gray-600" />
                   )}
@@ -401,7 +401,7 @@ const Produit = () => {
                     <label className="block text-sm font-semibold text-gray-700">
                       Sélectionnez un type
                     </label>
-                    <span className="text-xs text-orange-600 font-medium">
+                    <span className="text-xs text-amber-600 font-medium">
                       * Prix ajustable
                     </span>
                   </div>
@@ -437,13 +437,13 @@ const Produit = () => {
               )}
 
               {/* Price Section */}
-              <div className="mb-6 p-5 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl border border-orange-100">
+              <div className="mb-6 p-5 bg-gradient-to-r from-amber-50 to-amber-50 rounded-xl border border-amber-100">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center justify-between w-full ">
                     <p className="text-sm text-gray-600 mb-1 font-medium">
                       Prix unitaire
                     </p>
-                    <p className="text-3xl font-bold text-orange-600">
+                    <p className="text-3xl font-bold text-amber-500">
                       {formatNumberWithDots(prix)} Fcfa
                     </p>
                   </div>
@@ -485,10 +485,10 @@ const Produit = () => {
 
                   {/* Add to Cart Button */}
                   <button
-                    className={`flex-1 h-12 rounded-xl font-semibold text-white transition-all duration-300 shadow-lg ${
+                    className={`flex-1 h-12 rounded-xl font-semibold text-white transition-all duration-300  ${
                       isInCart
                         ? "bg-green-500 hover:bg-green-600 shadow-green-200"
-                        : "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 shadow-orange-200 hover:shadow-xl hover:shadow-orange-300"
+                        : "bg-gradient-to-br from-amber-400 to-amber-500 hover:bg-amber-600 hover:scale-[1.01] will-change-auto  "
                     }`}
                     onClick={addToCartFn}
                   >

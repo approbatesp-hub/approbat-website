@@ -63,7 +63,7 @@ const Header = ({ openDrawer }) => {
   };
 
   const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabase.auth.signOut({ scope: "global" });
     if (error) {
       toast.error("Erreur lors de la déconnexion");
     } else {
@@ -75,7 +75,7 @@ const Header = ({ openDrawer }) => {
 
   return (
     <nav className="shadow-lg fixed left-0 right-0 top-0 z-50 border-b border-gray-100 backdrop-blur-sm bg-white/95 ">
-      <div className="md:max-w-[95%] lg:max-w-[90%] xl:max-w-[80%] mx-auto px-4">
+      <div className="md:max-w-[95%] lg:max-w-[90%] xl:max-w-[85%] mx-auto px-4">
         {/* TOP ROW: Logo, Cart, User, Menu Button */}
         <div className="flex bg items-center justify-between h-16 md:h-20">
           {" "}
@@ -83,25 +83,23 @@ const Header = ({ openDrawer }) => {
           {/* Logo (Unchanged) */}
           <Link
             to="/"
-            className="flex items-center gap-1 md:gap-3 group transition-all duration-300 "
+            className="flex items-center  gap-1 md:gap-3 group transition-all duration-300 "
           >
             <img
               src={Logo}
               alt="Approbat"
-              className="h-9 w-9 md:w-14 md:h-14 transition-transform duration-300" // Adjusted size for better mobile fit
+              className="h-13 w-13 md:w-20 md:h-20 transition-transform duration-300" // Adjusted size for better mobile fit
             />
-            <span className="font-serif3 text-xl md:text-2xl font-bold bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">
-              Approbat
-            </span>
           </Link>
           {/* Desktop Navigation (Unchanged) */}
-          <div className="lg:flex items-center flex-1 max-w-3xl mx-12">
+          <div className="lg:flex items-center flex-1 max-w-4xl mx-12">
             {/* Navigation Links (Unchanged) */}
             <div className="hidden lg:flex items-center space-x-6 mr-12">
               {[
                 { path: "/", label: "Accueil" },
                 { path: "/boutique", label: "Boutique" },
                 { path: "/contact", label: "Contact" },
+                { path: "/Blog", label: "Articles" },
               ].map((item) => (
                 <NavLink
                   key={item.path}
@@ -109,8 +107,8 @@ const Header = ({ openDrawer }) => {
                   className={({ isActive }) =>
                     `relative px-1 py-2 text-[15px] ${
                       isActive
-                        ? "text-orange-600 font-semibold"
-                        : "text-gray-700 hover:text-orange-500"
+                        ? "text-amber-500 font-semibold"
+                        : "text-gray-700 hover:text-amber-500"
                     }`
                   }
                 >
@@ -130,11 +128,11 @@ const Header = ({ openDrawer }) => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Rechercher un produit..."
-                  className="w-full pl-6 pr-14 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-orange-500/20 focus:border-orange-500 transition-all placeholder:text-[15px] duration-300 bg-gray-50/50 hover:bg-white"
+                  className="w-full pl-6 pr-14 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-amber-500/20 focus:border-amber-500 transition-all placeholder:text-[15px] duration-300 bg-gray-50/50 hover:bg-white"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-orange-500 to-orange-600 text-white p-2.5 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 cursor-pointer"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-white p-2.5 rounded-xl hover:from-amber-600 hover:to-amber-700 transition-all duration-300 shadow-lg hover:shadow-amber-500/25 cursor-pointer"
                 >
                   <IoSearch className="text-xl" />
                 </button>
@@ -208,7 +206,7 @@ const Header = ({ openDrawer }) => {
                           navigate("/connexion");
                           setIsUserMenuOpen(false);
                         }}
-                        className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white py-2 md:py-3.5 rounded-xl font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer"
+                        className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-white py-2 md:py-3.5 rounded-xl font-semibold hover:from-amber-500 hover:to-amber-500 transition-all duration-300 transform hover:scale-105 shadow-lg cursor-pointer"
                       >
                         Se Connecter
                       </button>
@@ -279,7 +277,7 @@ const Header = ({ openDrawer }) => {
                                   : item.color === "pink"
                                   ? "bg-pink-100"
                                   : "bg-purple-100"
-                              } rounded-lg flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300`}
+                              } rounded-lg flex items-center justify-center group-hover:bg-amber-500 transition-colors duration-300`}
                             >
                               <item.icon
                                 className={`text-xl ${
@@ -340,7 +338,7 @@ const Header = ({ openDrawer }) => {
               aria-label={`Panier avec ${cart.length} articles`}
             >
               <SlBasket className="text-xl md:text-2xl text-gray-700" />
-              <span className="absolute top-0 right-0 md:-top-1 md:-right-1 bg-gradient-to-r from-orange-500 to-orange-600 text-white text-xs rounded-full w-4 h-4 md:w-5 md:h-5 flex items-center justify-center font-bold shadow-lg ">
+              <span className="absolute top-0 right-0 md:-top-1 md:-right-1 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs rounded-full w-4 h-4 md:w-5 md:h-5 flex items-center justify-center font-bold shadow-lg ">
                 {cart.length}
               </span>
             </Link>
@@ -364,11 +362,11 @@ const Header = ({ openDrawer }) => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Rechercher un produit..."
-              className="w-full pl-5 pr-14 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-3 focus:ring-orange-200 focus:border-orange-400 transition-all placeholder:text-gray-400 text-sm shadow-sm"
+              className="w-full pl-5 pr-14 py-2 border border-gray-200 rounded-full focus:outline-none focus:ring-3 focus:ring-amber-200 focus:border-amber-400 transition-all placeholder:text-gray-400 text-sm shadow-sm"
             />
             <button
               type="submit"
-              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full hover:from-orange-600 hover:to-red-600 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 bg-gradient-to-br from-amber-400 to-amber-500 text-white rounded-full hover:from-amber-500 hover:to-amber-500 transition-all duration-200 shadow-md hover:shadow-lg"
               aria-label="Rechercher"
             >
               <IoSearch className="text-lg" />

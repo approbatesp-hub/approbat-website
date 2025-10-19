@@ -121,7 +121,7 @@ const Contact = () => {
                     value={sujet}
                     onChange={(e) => setSujet(e.target.value)}
                     placeholder="Sujet de votre message"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-300 focus:border-orange-500 outline-none transition-all placeholder:text-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-300 focus:border-amber-500 outline-none transition-all placeholder:text-gray-400"
                     required
                   />
                 </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     placeholder="05 XX XX XX XX"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-300 focus:border-orange-500 outline-none transition-all placeholder:text-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-300 focus:border-amber-500 outline-none transition-all placeholder:text-gray-400"
                     required
                   />
                 </div>
@@ -158,7 +158,7 @@ const Contact = () => {
                     value={nom}
                     onChange={(e) => setNom(e.target.value)}
                     placeholder="Nom & Prénoms"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-300 focus:border-orange-500 outline-none transition-all placeholder:text-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-300 focus:border-amber-500 outline-none transition-all placeholder:text-gray-400"
                     required
                   />
                 </div>
@@ -175,7 +175,7 @@ const Contact = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="votre@email.com"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-300 focus:border-orange-500 outline-none transition-all placeholder:text-gray-400"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-300 focus:border-amber-500 outline-none transition-all placeholder:text-gray-400"
                     required
                   />
                 </div>
@@ -194,7 +194,7 @@ const Contact = () => {
                   rows={6}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Décrivez-nous votre demande en détail..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-300 focus:border-orange-500 outline-none transition-all resize-none placeholder:text-gray-400"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-amber-300 focus:border-amber-500 outline-none transition-all resize-none placeholder:text-gray-400"
                   required
                 ></textarea>
               </div>
@@ -202,7 +202,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-orange-300 cursor-pointer"
+                className="w-full bg-gradient-to-br from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-600 disabled:from-gray-400 disabled:to-gray-500 text-white font-semibold py-4 px-6 rounded-xl shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-amber-300 cursor-pointer"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center">
@@ -248,8 +248,8 @@ const Contact = () => {
               </p>
 
               <div className="space-y-8">
-                <div className="flex gap-5 items-start p-5 bg-gradient-to-r from-orange-50 to-red-50 rounded-2xl border border-orange-100 hover:shadow-md transition-shadow">
-                  <div className="flex-shrink-0 p-4 bg-orange-500 text-white rounded-xl shadow-lg">
+                <div className="flex gap-5 items-start p-5 bg-gradient-to-r from-amber-50 to-red-50 rounded-2xl border border-amber-100 hover:shadow-md transition-shadow">
+                  <div className="flex-shrink-0 p-4 bg-amber-500 text-white rounded-xl shadow-lg">
                     <MdPhoneInTalk className="text-2xl" />
                   </div>
                   <div>
@@ -259,7 +259,7 @@ const Contact = () => {
                     <p className="text-gray-600 mt-1">
                       Appelez-nous pour une réponse immédiate.
                     </p>
-                    <p className="font-mono text-lg font-bold text-orange-600 mt-2">
+                    <p className="font-mono text-lg font-bold text-amber-600 mt-2">
                       +225 05 00 76 96 96
                     </p>
                   </div>
@@ -283,7 +283,7 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="mt-10 p-5 bg-gray-50 rounded-xl border-l-4 border-orange-500">
+              <div className="mt-10 p-5 bg-gray-50 rounded-xl border-l-4 border-amber-500">
                 <p className="text-sm text-gray-600 italic">
                   ⏱️ <strong>Temps de réponse :</strong> Sous 24 heures en
                   semaine.

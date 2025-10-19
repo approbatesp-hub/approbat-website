@@ -34,6 +34,10 @@ import ProtectedRoute from "./routes/Admin/ProtectedRoute";
 import VerifyOTP from "./routes/VerifyOTP";
 import UpdatePassword from "./routes/UpdatePassword";
 import DashBoardClient from "./routes/Profil/DashBoardClient";
+import BlogAdmin from "./routes/Admin/BlogAdmin";
+import Articles from "./routes/Admin/Articles";
+import Blog from "./routes/Blog";
+import BlogID from "./routes/BlogID";
 
 // 1. Create a Root component to provide the location context to all routes.
 const Root = () => {
@@ -66,6 +70,9 @@ const router = createBrowserRouter([
           { path: "enregistrer", element: <EnregistrezVous /> },
           { path: "mdpoublie", element: <MDPOublie /> },
           { path: "contact", element: <Contact /> },
+          { path: "blog", element: <Blog /> },
+          { path: "blog/:id", element: <BlogID /> },
+
           {
             path: "profil",
             element: <Layout />,
@@ -99,6 +106,10 @@ const router = createBrowserRouter([
           { path: "commandes", element: <VoirCommandes /> },
           { path: "utilisateurs", element: <Utilisateurs /> },
           { path: "proforma", element: <Proforma /> },
+          { path: "blogAdmin", element: <BlogAdmin /> },
+
+          { path: "articles", element: <Articles /> },
+
           { path: "coupons", element: <Coupons /> },
           { path: "modifier/:id", element: <ModifierProduit /> },
         ],

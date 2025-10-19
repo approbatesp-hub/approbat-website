@@ -12,10 +12,10 @@ const ErrorPage = () => {
         {/* Elegant Error Icon */}
         <div className="mb-8">
           <div className="relative inline-flex items-center justify-center">
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur-md opacity-30 animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-amber-500 rounded-full blur-md opacity-30 animate-pulse"></div>
             <div className="relative bg-white rounded-full p-6 shadow-2xl border border-slate-200 animate-bounce">
               <svg
-                className="w-16 h-16 text-orange-500"
+                className="w-16 h-16 text-amber-500"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -35,7 +35,7 @@ const ErrorPage = () => {
         <div className="space-y-4 mb-8">
           <div className="flex items-center justify-center gap-3">
             <span className="text-slate-500 text-lg">Erreur</span>
-            <span className="text-2xl font-bold text-orange-500 bg-orange-50 px-4 py-1 rounded-full border border-orange-200">
+            <span className="text-2xl font-bold text-amber-500 bg-amber-50 px-4 py-1 rounded-full border border-amber-200">
               {error?.status || "404"}
             </span>
           </div>
@@ -54,9 +54,9 @@ const ErrorPage = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate("/")}
-          className="group relative inline-flex items-center justify-center gap-3 bg-white text-slate-700 font-medium py-3 px-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-orange-200 hover:text-orange-600 transition-all duration-300 transform hover:-translate-y-0.5"
+          className="group relative inline-flex items-center justify-center gap-3 bg-white text-slate-700 font-medium py-3 px-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md hover:border-amber-200 hover:text-amber-600 transition-all duration-300 transform hover:-translate-y-0.5"
         >
-          <FaArrowCircleLeft className="text-orange-500 transition-transform duration-300 group-hover:-translate-x-1" />
+          <FaArrowCircleLeft className="text-amber-500 transition-transform duration-300 group-hover:-translate-x-1" />
           <span>Retour à l'accueil</span>
         </button>
       </div>
