@@ -104,19 +104,6 @@ const VerifyOTP = () => {
     const toastId = toast.loading("Création du profil...");
 
     // VERIFIER D'ABORD SI L'UTILISATEUR EXISTE DANS LA BASE DE DONNÉES
-    const { data: userExists } = await supabase
-      .from("Users")
-      .select("email")
-      .eq("email", email)
-      .single();
-
-    if (userExists) {
-      toast.dismiss(toastId);
-      setTimeout(() => {
-        navigate("/connexion");
-      }, 2000);
-      return toast.error("L'utilisateur existe déjà. Veuillez vous connecter.");
-    }
 
     // ENSUITE CRÉER L'AUTHENTIFICATION
     const { error: updateError } = await supabase.auth.updateUser({
@@ -267,7 +254,7 @@ const VerifyOTP = () => {
             <button
               onClick={handleVerify}
               disabled={!isCodeComplete || isLoading || isExpired}
-              className="w-full hoverBtn text-white py-3 px-4 rounded-xl font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
+              className="w-full bg-gradient-to-br from-amber-400 to-amber-500 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">

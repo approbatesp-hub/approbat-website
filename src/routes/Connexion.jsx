@@ -34,7 +34,7 @@ const Connexion = () => {
     });
     if (error) {
       toast.dismiss(toastId);
-      return toast.error("Erreur de connexion");
+      return toast.error("Identifiants incorrects");
     } else {
       const { data } = await supabase
         .from("Users")

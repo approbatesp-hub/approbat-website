@@ -12,6 +12,7 @@ import Aloading from "../../assets/Images/animation/ALoading.json";
 import toast from "react-hot-toast";
 import Logo from "../../assets/Images/logo-no-bg.png";
 import { generateFacturePDF } from "../../utils/hookPDF"; // We'll create this function
+import supabase from "../../../supase-client";
 
 const Proforma = () => {
   const formatNumberWithDots = (number) => {
@@ -40,7 +41,20 @@ const Proforma = () => {
   const endIdx = startIdx + pageSize;
   const currentItems = allFactures?.slice(startIdx, endIdx);
 
-  async function deleteFacture(id) {}
+  async function deleteFacture(id) {
+    try {
+      const toastId = toast.loading("Suppression en cours...");
+      const { error } = await supabase.from("Factures").delete().eq("id", id);
+
+      if (error) throw error;
+
+      toast.dismiss(toastId);
+      toast.success("Proforma supprimée");
+      refreshFactures();
+    } catch (error) {
+      toast.error(error.message);
+    }
+  }
 
   // Function to generate PDF using html2canvas and jsPDF (same as VoirCommandes)
   const handleGeneratePDF = (facture) => {

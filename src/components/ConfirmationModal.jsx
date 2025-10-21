@@ -4,7 +4,7 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm, data }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
       <div className="bg-white rounded-xl p-6 max-w-lg w-full shadow-lg">
-        <h3 className="text-center text-orange text-xl font-semibold mb-4">
+        <h3 className="text-center text-amber-500 text-xl font-semibold mb-4">
           Vérification des informations
         </h3>
 
@@ -28,7 +28,7 @@ const ConfirmationModal = ({ isOpen, onClose, onConfirm, data }) => {
           </button>
           <button
             onClick={onConfirm}
-            className="px-4 py-2 rounded-lg hoverBtn cursor-pointer"
+            className="px-4 text-white py-2 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 cursor-pointer"
           >
             Oui, tout est correct !
           </button>

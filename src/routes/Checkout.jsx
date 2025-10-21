@@ -173,6 +173,8 @@ const Checkout = () => {
     }
 
     if (!adresse || !district || !commune) {
+      toast.dismiss(toastId);
+
       toast.error("Tous les champs sont obligatoires !");
       return;
     }
@@ -251,9 +253,9 @@ const Checkout = () => {
             user_email: userInfo.email,
           };
 
-          const templateId = "template_rc7v9dt";
-          const serviceID = "service_neppp7k";
-          const publicKEY = "68pXeZCvBI2EfIOS_";
+          const templateId = "template_rhfcz6m";
+          const serviceID = "service_bytzewh";
+          const publicKEY = "dAe8-unDl4Y1Pjxbj";
 
           emailjs.send(serviceID, templateId, templateParams, publicKEY).then(
             () => {

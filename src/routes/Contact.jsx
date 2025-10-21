@@ -30,14 +30,14 @@ const Contact = () => {
       user_email: email,
     };
 
-    const templateId = "template_rc7v9dt";
-    const serviceID = "service_neppp7k";
-    const publicKEY = "68pXeZCvBI2EfIOS_";
+    const templateId = "template_sezt4nd";
+    const serviceID = "service_bytzewh";
+    const publicKEY = "dAe8-unDl4Y1Pjxbj";
 
     emailjs.send(serviceID, templateId, templateParams, publicKEY).then(
       (res) => {
         console.log(res);
-        toast.success("✅ Message envoyé avec succès !");
+        toast.success("Message envoyé avec succès !");
         setNom("");
         setEmail("");
         setNumber("");
@@ -277,7 +277,7 @@ const Contact = () => {
                       Envoyez-nous un message à tout moment.
                     </p>
                     <p className="font-mono text-lg font-bold text-blue-600 mt-2 break-all">
-                      approbatesp@gmail.com
+                      approbatservices@gmail.com
                     </p>
                   </div>
                 </div>

@@ -54,6 +54,20 @@ const EnregistrezVous = () => {
     const numberTrim = phoneNumber.trim();
     const toastId = toast.loading("Création du profil...");
 
+    const { data: userExists } = await supabase
+      .from("Users")
+      .select("email")
+      .eq("email", email)
+      .single();
+
+    if (userExists) {
+      toast.dismiss(toastId);
+      setTimeout(() => {
+        navigate("/connexion");
+      }, 2000);
+      return toast.error("L'utilisateur existe déjà. Veuillez vous connecter.");
+    }
+
     const { error } = await supabase.auth.signInWithOtp({
       email,
     });
