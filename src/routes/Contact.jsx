@@ -259,7 +259,7 @@ const Contact = () => {
                     <p className="text-gray-600 mt-1">
                       Appelez-nous pour une réponse immédiate.
                     </p>
-                    <p className="font-mono text-lg font-bold text-amber-600 mt-2">
+                    <p className="font-mono md:text-lg font-bold text-amber-600 mt-2">
                       +225 05 00 76 96 96
                     </p>
                   </div>
@@ -276,7 +276,7 @@ const Contact = () => {
                     <p className="text-gray-600 mt-1">
                       Envoyez-nous un message à tout moment.
                     </p>
-                    <p className="font-mono text-lg font-bold text-blue-600 mt-2 break-all">
+                    <p className="font-mono md:text-lg font-bold text-blue-600 mt-2 break-all">
                       approbatservices@gmail.com
                     </p>
                   </div>
