@@ -23,7 +23,7 @@ export const generateOrderPDF = async (order, Logo) => {
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #2f4858;">
             <div>
             <img src="${Logo}" alt="Logo" style="width: 50px; height: 50px;" />
-                <h1 style="font-size: 32px; font-weight: bold; color: #2f4858;">APPROBAT</h1>
+                <h1 style="font-size: 32px; font-weight: bold; color: #2f4858;">APPROBAT SERVICES</h1>
                 <p style="color: #666; margin: 0; font-size: 14px;">Votre partenaire de confiance</p>
             </div>
             <div style="text-align: right;">
@@ -169,15 +169,15 @@ export const generateOrderPDF = async (order, Logo) => {
 
         <!-- Footer -->
         <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #2f4858; text-align: center; color: #666; font-size: 12px;">
-            <p style="margin: 5px 0;">APPROBAT - Votre satisfaction est notre priorité</p>
-            <p style="margin: 5px 0;">Email: approbatesp@gmail.com | Téléphone: +0500769696</p>
+            <p style="margin: 5px 0;">APPROBAT SERVICES - Votre satisfaction est notre priorité</p>
+            <p style="margin: 5px 0;">Email: approbatservices@gmail.com | Téléphone: +0500769696</p>
             <p style="margin: 5px 0; font-style: italic;">Merci pour votre confiance !</p>
         </div>
 
         <!-- Watermark -->
         <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); 
                    opacity: 0.05; font-size: 80px; font-weight: bold; color: #2f4858; pointer-events: none;">
-            APPROBAT
+            APPROBAT SERVICES
         </div>
     `;
 
@@ -234,7 +234,7 @@ export const generateFacturePDF = async (facture, Logo) => {
       <!-- Simple Watermark -->
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-45deg); 
                  opacity: 0.02; font-size: 100px; font-weight: 900; color: #2f4858; pointer-events: none; z-index: 0; white-space: nowrap;">
-        APPROBAT
+        APPROBAT SERVICES
       </div>
 
       <!-- Header Section -->
@@ -244,13 +244,13 @@ export const generateFacturePDF = async (facture, Logo) => {
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
             <img src="${Logo}" alt="Logo" style="width: 50px; height: 50px;" />
             <div>
-              <h1 style="font-size: 24px; font-weight: 700; color: #2f4858; margin: 0;">APPROBAT</h1>
+              <h1 style="font-size: 24px; font-weight: 700; color: #2f4858; margin: 0;">APPROBAT SERVICES</h1>
               <p style="color: #6b7280; margin: 2px 0; font-size: 12px;">Votre partenaire de confiance</p>
             </div>
           </div>
           <div style="color: #6b7280; font-size: 11px; line-height: 1.4;">
             <p style="margin: 2px 0;">Abidjan, Côte d'Ivoire</p>
-            <p style="margin: 2px 0;">Email: approbatesp@gmail.com</p>
+            <p style="margin: 2px 0;">Email: approbatservices@gmail.com</p>
             <p style="margin: 2px 0;">Tél: +225 07 08 79 73 58</p>
           </div>
         </div>
@@ -354,18 +354,18 @@ export const generateFacturePDF = async (facture, Logo) => {
         <!-- Simple Notes -->
         <div style="background: #f0f9ff; padding: 15px; border-radius: 6px; border-left: 4px solid #0369a1; margin-bottom: 20px;">
           <p style="color: #0369a1; font-size: 11px; margin: 0; line-height: 1.4; text-align: center;">
-            Ce document est un devis estimatif. Les prix sont indiqués en Francs CFA.
+            Ce document est un devis estimatif. 
           </p>
         </div>
 
         <!-- Footer -->
         <div style="text-align: center; color: #6b7280; font-size: 10px;">
           <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 8px; flex-wrap: wrap;">
-            <span>📧 approbatesp@gmail.com</span>
+            <span>📧 approbatservices@gmail.com</span>
             <span>📞 +225 07 08 79 73 58</span>
-            <span>🌐 www.approbat.com</span>
+            <span>🌐 www.approbatservices.com</span>
           </div>
-          <p style="margin: 4px 0; font-weight: 600;">APPROBAT - Excellence et Confiance</p>
+          <p style="margin: 4px 0; font-weight: 600;">APPROBAT SERVICES - Excellence et Confiance</p>
           <p style="margin: 4px 0; font-style: italic;">Merci pour votre confiance !</p>
           <p style="margin: 8px 0 0 0; color: #9ca3af;">
             Document généré le ${format(new Date(), "dd/MM/yyyy 'à' HH:mm", {
@@ -408,7 +408,7 @@ export const generateFacturePDF = async (facture, Logo) => {
       heightLeft -= pageHeight;
     }
 
-    const fileName = `Devis-APPROBAT-${facture.id || ""}.pdf`
+    const fileName = `Devis-APPROBAT SERVICES-${facture.id || ""}.pdf`
       .replace(/\s+/g, "-")
       .toLowerCase();
 
