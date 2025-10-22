@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import Drawer from "rc-drawer";
 import { FaTimes } from "react-icons/fa"; // cleaner icon
 import { useEffect, useState } from "react";
-import Logo from "../assets/Images/logo-no-bg.png";
+import Logo from "../assets/Images/logo.png";
 import { useSelector } from "react-redux";
 // import BackToTop from "./Acceuil/BackToTop";
 import "rc-drawer/assets/index.css"; // ensures base styles

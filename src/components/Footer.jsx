@@ -1,7 +1,7 @@
 import { CiFacebook, CiLinkedin } from "react-icons/ci";
 import { FaWhatsapp, FaHeart } from "react-icons/fa";
 import { IoConstruct } from "react-icons/io5";
-import Logo from "../assets/Images/logo-no-bg.png";
+import Logo from "../assets/Images/logo.png";
 import { Link } from "react-router";
 import ContactMe from "./ContactMe";
 

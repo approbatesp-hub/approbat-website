@@ -10,7 +10,7 @@ import Aloading from "../../assets/Images/animation/ALoading.json";
 import { useState } from "react";
 import { recuperCommandes } from "../../utils/hooks";
 
-import Logo from "../../assets/Images/logo-no-bg.png";
+import Logo from "../../assets/Images/logo.png";
 import { generateOrderPDF } from "../../utils/hookPDF";
 import supabase from "../../../supase-client";
 import toast from "react-hot-toast";

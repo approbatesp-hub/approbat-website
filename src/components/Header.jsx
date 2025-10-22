@@ -1,5 +1,5 @@
 import { Link, NavLink, useNavigate } from "react-router"; // Use react-router-dom
-import Logo from "../assets/Images/logo-no-bg.png";
+import Logo from "../assets/Images/logo.png";
 import { PiUserCircleLight } from "react-icons/pi";
 import { SlBasket } from "react-icons/sl";
 import { FaUserSlash } from "react-icons/fa";

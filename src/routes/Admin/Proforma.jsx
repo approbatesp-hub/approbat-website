@@ -10,7 +10,7 @@ import ZeroPurchase from "../../assets/Images/animation/EmptyOrder.json";
 import Aloading from "../../assets/Images/animation/ALoading.json";
 
 import toast from "react-hot-toast";
-import Logo from "../../assets/Images/logo-no-bg.png";
+import Logo from "../../assets/Images/logo.png";
 import { generateFacturePDF } from "../../utils/hookPDF"; // We'll create this function
 import supabase from "../../../supase-client";
 

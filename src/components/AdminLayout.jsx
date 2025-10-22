@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router";
-import Logo from "../assets/Images/logo-no-bg.png";
+import Logo from "../assets/Images/logo.png";
 import { useState } from "react";
 import { IoHome } from "react-icons/io5";
 import { TbDoorExit, TbDoorEnter } from "react-icons/tb";

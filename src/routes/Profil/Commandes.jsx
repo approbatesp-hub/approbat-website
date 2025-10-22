@@ -13,7 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 import CommandesCardEN from "../../components/CommandesCardEN";
 import { useSelector } from "react-redux";
 import { recuperCommandesEnCours } from "../../utils/hooks";
-import Logo from "../../assets/Images/logo-no-bg.png";
+import Logo from "../../assets/Images/logo.png";
 const Commandes = () => {
   const { userInfo } = useSelector((state) => state.projet);
   const {

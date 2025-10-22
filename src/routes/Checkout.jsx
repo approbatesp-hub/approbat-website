@@ -8,7 +8,7 @@ import { isWithinInterval } from "date-fns";
 import emailjs from "@emailjs/browser";
 
 // Assuming these are correctly imported from your project structure
-import Logo from "../assets/Images/logo-no-bg.png";
+import Logo from "../assets/Images/logo.png";
 import { communesAbidjan } from "../utils/constants";
 import { connexion, resetAll } from "../redux/espremium";
 
