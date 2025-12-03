@@ -92,7 +92,7 @@ export const generateOrderPDF = async (order, Logo) => {
                         <th style="padding: 12px; text-align: center; border: 1px solid #2f4858;">Type</th>
                         <th style="padding: 12px; text-align: center; border: 1px solid #2f4858;">Prix Unitaire</th>
                         <th style="padding: 12px; text-align: center; border: 1px solid #2f4858;">Quantité</th>
-                        <th style="padding: 12px; text-align: center; border: 1px solid #2f4858;">Livraison</th>
+                        
                         <th style="padding: 12px; text-align: right; border: 1px solid #2f4858;">Sous-total</th>
                     </tr>
                 </thead>
@@ -114,20 +114,30 @@ export const generateOrderPDF = async (order, Logo) => {
                                         ? item.type
                                         : "-"
                                     }</td>
-                                    <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">${formatNumberWithDots(
-                                      item.prix
-                                    )} Fcfa</td>
+                                    <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">
+                                    ${
+                                      item.nom !== "sable" &&
+                                      item.nom !== "gravier"
+                                        ? `${formatNumberWithDots(
+                                            item.prix
+                                          )} Fcfa`
+                                        : "-"
+                                    } 
+                                    
+                                    </td>
                                     <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">${
                                       item.quantite || 0
                                     }</td>
-                                    <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">${
-                                      item.livraisonGratuite
-                                        ? '<span style="color: #10b981; font-weight: bold;">Gratuite</span>'
-                                        : '<span style="color: #ef4444;">Payante</span>'
-                                    }</td>
-                                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right; font-weight: bold;">${formatNumberWithDots(
-                                      (item.prix || 0) * (item.quantite || 0)
-                                    )} Fcfa</td>
+                                   
+                                    <td style="padding: 10px; border: 1px solid #ddd; text-align: right; font-weight: bold;">${
+                                      item.nom !== "sable" &&
+                                      item.nom !== "gravier"
+                                        ? formatNumberWithDots(
+                                            (item.prix || 0) *
+                                              (item.quantite || 0)
+                                          )
+                                        : formatNumberWithDots(item.prix || 0)
+                                    } Fcfa</td>
                                 </tr>
                             `
                             )
@@ -170,7 +180,7 @@ export const generateOrderPDF = async (order, Logo) => {
         <!-- Footer -->
         <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #2f4858; text-align: center; color: #666; font-size: 12px;">
             <p style="margin: 5px 0;">APPROBAT SERVICES - Votre satisfaction est notre priorité</p>
-            <p style="margin: 5px 0;">Email: approbatservices@gmail.com | Téléphone: +0500769696</p>
+            <p style="margin: 5px 0;">Email: approbatservices@gmail.com | Téléphone: +225 05 00 76 96 96</p>
             <p style="margin: 5px 0; font-style: italic;">Merci pour votre confiance !</p>
         </div>
 
@@ -251,7 +261,7 @@ export const generateFacturePDF = async (facture, Logo) => {
           <div style="color: #6b7280; font-size: 11px; line-height: 1.4;">
             <p style="margin: 2px 0;">Abidjan, Côte d'Ivoire</p>
             <p style="margin: 2px 0;">Email: approbatservices@gmail.com</p>
-            <p style="margin: 2px 0;">Tél: +225 07 08 79 73 58</p>
+            <p style="margin: 2px 0;">Tél: +225 05 00 76 96 96</p>
           </div>
         </div>
 
@@ -290,7 +300,7 @@ export const generateFacturePDF = async (facture, Logo) => {
           <thead>
             <tr style="background: #2f4858; color: white;">
               <th style="padding: 12px; text-align: left; font-weight: 600; border: none;">Désignation</th>
-              <th style="padding: 12px; text-align: center; font-weight: 600; border: none;">Unité</th>
+              <th style="padding: 12px; text-align: center; font-weight: 600; border: none;">Type/Dimension</th>
               <th style="padding: 12px; text-align: center; font-weight: 600; border: none;">Quantité</th>
               <th style="padding: 12px; text-align: center; font-weight: 600; border: none;">Prix Unitaire</th>
               <th style="padding: 12px; text-align: right; font-weight: 600; border: none;">Total</th>
@@ -316,12 +326,20 @@ export const generateFacturePDF = async (facture, Logo) => {
                     item.quantite || 0
                   }</td>
                   <td style="padding: 12px; border: none; text-align: center; font-weight: 600;">
-                    ${formatNumberWithDots(item.prix)} Fcfa
+             ${
+               item.nom !== "sable" && item.nom !== "gravier"
+                 ? `${formatNumberWithDots(item.prix)} Fcfa`
+                 : "-"
+             } 
                   </td>
                   <td style="padding: 12px; border: none; text-align: right; font-weight: 700; color: #2f4858;">
-                    ${formatNumberWithDots(
-                      (item.prix || 0) * (item.quantite || 0)
-                    )} Fcfa
+                    ${
+                      item.nom !== "sable" && item.nom !== "gravier"
+                        ? formatNumberWithDots(
+                            (item.prix || 0) * (item.quantite || 0)
+                          )
+                        : formatNumberWithDots(item.prix || 0)
+                    } Fcfa
                   </td>
                 </tr>
               `
@@ -338,7 +356,7 @@ export const generateFacturePDF = async (facture, Logo) => {
       </div>
 
       <!-- Simple Total Section -->
-      <div style="display: flex; justify-content: flex-end; margin-bottom: 30px;">
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 30px; margin-right: 50px;">
         <div style="width: 300px; background: #f8fafc;  ">
           <div style="display: flex; gap: 10px; justify-content: space-between; align-items: center; font-size: 18px;">
             <span style="font-weight: 700; color: #2f4858; text-wrap: nowrap">MONTANT TOTAL:</span>
@@ -362,16 +380,12 @@ export const generateFacturePDF = async (facture, Logo) => {
         <div style="text-align: center; color: #6b7280; font-size: 10px;">
           <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 8px; flex-wrap: wrap;">
             <span>📧 approbatservices@gmail.com</span>
-            <span>📞 +225 07 08 79 73 58</span>
+            <span>📞 +225 05 00 76 96 96</span>
             <span>🌐 www.approbatservices.com</span>
           </div>
           <p style="margin: 4px 0; font-weight: 600;">APPROBAT SERVICES - Excellence et Confiance</p>
           <p style="margin: 4px 0; font-style: italic;">Merci pour votre confiance !</p>
-          <p style="margin: 8px 0 0 0; color: #9ca3af;">
-            Document généré le ${format(new Date(), "dd/MM/yyyy 'à' HH:mm", {
-              locale: frCA,
-            })}
-          </p>
+          
         </div>
       </div>
     </div>

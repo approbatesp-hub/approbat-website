@@ -245,13 +245,13 @@ const ModifierProduit = () => {
       return;
     }
 
-    const validTypes = ["image/png", "image/jpeg"];
+    const validTypes = ["image/png", "image/jpeg", "image/webp"];
 
     const invalidFiles = files.filter(
       (file) => !validTypes.includes(file.type)
     );
     if (invalidFiles.length > 0) {
-      toast.error("Seules les images JPEG et PNG sont acceptées.");
+      toast.error("Seules les images JPEG, PNG et WebP sont acceptées.");
       return;
     }
     setLoading(true);

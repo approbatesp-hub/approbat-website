@@ -3,7 +3,7 @@ import { LiaWhatsapp } from "react-icons/lia";
 const DevisButton = ({ className }) => {
   const phoneNumber = "+2250500769696";
   const message =
-    "Bonjour Approbat, je vous écris concernant une demande de devis"; // The message you want to pre-fill
+    "Bonjour Approbat Services, je vous écris concernant une demande de devis"; // The message you want to pre-fill
 
   const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message

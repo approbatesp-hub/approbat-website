@@ -9,7 +9,7 @@ import emailjs from "@emailjs/browser";
 
 // Assuming these are correctly imported from your project structure
 import Logo from "../assets/Images/logo.png";
-import { communesAbidjan } from "../utils/constants";
+import { communesAbidjan, selectStyles } from "../utils/constants";
 import { connexion, resetAll } from "../redux/espremium";
 
 // Icons
@@ -72,26 +72,6 @@ const Checkout = () => {
   }));
 
   // Custom styling for react-select components
-  const selectStyles = {
-    control: (provided) => ({
-      ...provided,
-      borderColor: "#d1d5db", // gray-300
-      minHeight: "42px",
-      boxShadow: "none",
-      "&:hover": {
-        borderColor: "#9ca3af", // gray-400
-      },
-    }),
-    option: (provided, state) => ({
-      ...provided,
-      backgroundColor: state.isSelected
-        ? "#FF7A00"
-        : state.isFocused
-        ? "#fdece0"
-        : "white",
-      color: state.isSelected ? "white" : "black",
-    }),
-  };
 
   // --- Event Handlers (Your logic goes here) ---
   const appliquerCoupon = async (e) => {
@@ -468,9 +448,16 @@ const Checkout = () => {
                     </p>
                   </div>
                 </div>
-                <p className="font-medium text-gray-900 text-right whitespace-nowrap">
-                  {formatNumberWithDots(item.prix * item.quantite)} Fcfa
-                </p>
+                {item.nom !== "gravier" && item.nom !== "sable" && (
+                  <p className="font-medium text-gray-900 text-right whitespace-nowrap">
+                    {formatNumberWithDots(item.prix * item.quantite)} Fcfa
+                  </p>
+                )}
+                {(item.nom === "gravier" || item.nom === "sable") && (
+                  <p className="font-medium text-gray-900 text-right whitespace-nowrap">
+                    {formatNumberWithDots(item.prix)} Fcfa
+                  </p>
+                )}
               </div>
             ))}
           </div>

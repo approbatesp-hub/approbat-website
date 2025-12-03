@@ -57,7 +57,7 @@ const CommandesCardEN = ({ allCommandes }) => {
               {el.articlesAchetes.length > 1 ? "Articles" : "Article"} dans
               votre commande
             </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2  gap-5">
               {el.articlesAchetes.map((item, idx) => (
                 <div key={idx} className="flex gap-4">
                   <img
@@ -70,7 +70,7 @@ const CommandesCardEN = ({ allCommandes }) => {
                     className="w-20 h-20 object-cover rounded-lg border
                   border-gray-200 flex-shrink-0"
                   />
-                  <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0 ">
                     <h5 className="font-medium text-gray-900 line-clamp-2">
                       {item.nom}
                     </h5>
@@ -84,7 +84,7 @@ const CommandesCardEN = ({ allCommandes }) => {
                       </p>
                     )}
                     <div className="mt-2 inline-block">
-                      <span className="bg-amber-100 text-amber-800 text-xs font-medium px-2.5 py-0.5 rounded-full">
+                      <span className="bg-amber-100 text-amber-800 text-xs font-medium px-2.5 py-0.5 rounded-full text-nowrap ">
                         En cours de livraison
                       </span>
                     </div>

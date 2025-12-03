@@ -8,9 +8,14 @@ import Commentaires from "../components/Commentaires";
 import VoirPlus from "../components/VoirPlus";
 import { useDispatch, useSelector } from "react-redux";
 import DevisButton from "../components/DevisButton";
+import GravierModal from "../components/GravierModal";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { formatNumberWithDots } from "../utils/constants";
+import {
+  communesAbidjan,
+  formatNumberWithDots,
+  selectStyles,
+} from "../utils/constants";
 import toast from "react-hot-toast";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
@@ -22,6 +27,10 @@ import {
 } from "../redux/espremium";
 import { addOrRemoveToFav } from "../utils/queries";
 import { IoIosWarning } from "react-icons/io";
+import Partner1 from "../assets/Images/Partenaires/sibm.png";
+import Partner2 from "../assets/Images/Partenaires/sotaci.png";
+import Partner3 from "../assets/Images/Partenaires/sotici.png";
+import { IoCloseCircle } from "react-icons/io5";
 
 const Star = (
   <path d="M62 25.154H39.082L32 3l-7.082 22.154H2l18.541 13.693L13.459 61L32 47.309L50.541 61l-7.082-22.152L62 25.154z" />
@@ -37,7 +46,6 @@ const customStyles = {
   inactiveBoxColor: "#dddddd",
   inactiveBoxBorderColor: "#a8a8a8",
 };
-
 const Produit = () => {
   const { cart, userInfo, productDetails, favorites } = useSelector(
     (state) => state.projet
@@ -48,6 +56,22 @@ const Produit = () => {
   const [allProduits, setAllProduits] = useState(
     location.state?.produits || []
   );
+
+  const partners = [
+    { logo: Partner1, name: "SIBM" },
+    { logo: Partner2, name: "SOTACI" },
+    { logo: Partner3, name: "SOTICI" },
+  ];
+
+  const [commune, setCommune] = useState(
+    userInfo?.adresse?.commune
+      ? { value: userInfo.adresse.commune, label: userInfo.adresse.commune }
+      : null
+  );
+  const communeOptions = communesAbidjan.map((el) => ({
+    value: el.commune,
+    label: el.commune,
+  }));
 
   const dispatch = useDispatch();
   const [selectedImage, setSelectedImage] = useState(0);
@@ -60,7 +84,7 @@ const Produit = () => {
   // ✅ State for cart status
   const [isInCart, setIsInCart] = useState(false);
   const [currentCartItem, setCurrentCartItem] = useState(null);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // Sync product data
   useEffect(() => {
     const newProduit = productDetails;
@@ -138,6 +162,11 @@ const Produit = () => {
         : 0;
     setRating(avisNote);
   }, [produit?.commentaires]);
+
+  useEffect(() => {
+    if (produit?.nom === "gravier" || produit?.nom === "sable")
+      setIsModalOpen(true);
+  }, [produit?.nom]);
 
   const minQty = Number(produit.quantiteMinimale) || 1;
 
@@ -242,19 +271,41 @@ const Produit = () => {
                 )}
 
                 {/* Main Image Container */}
-                <div className="flex-1 order-1 lg:order-2">
+                <div className="flex-1 order-1 lg:order-2 ">
                   <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                     <div className="relative  overflow-hidden">
-                      <div className="rounded-xl h-[280px] md:h-[500px] lg:h-[400px] xl:h-[500px] overflow-hidden relative">
+                      <div className="rounded-xl h-[280px] md:h-[500px] lg:h-[400px] xl:h-[450px] overflow-hidden relative">
                         <Zoom>
                           <img
                             src={produit?.images?.[selectedImage] || ""}
                             className="h-[500px] w-full object-cover rounded-lg"
                             alt={produit?.nom || "Produit"}
                           />
-                          <span className="bg-amber-500 capitalize text-white text-[14px] px-2 rounded-full absolute top-2 left-2">
-                            {produit?.fournisseur || "—"}
-                          </span>
+                          {produit?.fournisseur &&
+                            produit?.fournisseur !== "aucun" &&
+                            partners.find(
+                              (el) =>
+                                el.name === produit?.fournisseur.toUpperCase()
+                            ) && (
+                              <div className="absolute items-center gap-1 top-4 left-4 z-10 flex ">
+                                <div className=" w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden border-2 border-white shadow-sm">
+                                  <img
+                                    src={
+                                      partners.find(
+                                        (el) =>
+                                          el.name ===
+                                          produit?.fournisseur.toUpperCase()
+                                      )?.logo
+                                    }
+                                    alt={produit.fournisseur}
+                                    className="w-full h-full object-contain bg-white"
+                                  />
+                                </div>
+                                <span className="text-[10px] md:text-[13px] text-shadow-md text-white font-bold px-1">
+                                  {produit?.fournisseur.toUpperCase()}
+                                </span>
+                              </div>
+                            )}
                         </Zoom>
                       </div>
                       {/* Badges */}
@@ -316,24 +367,29 @@ const Produit = () => {
                       </button>
                     </div>
                   )}
+                  <div className="flex  justify-center mt-5 gap-2">
+                    <span className="px-3 py-1.5 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full border border-blue-200">
+                      En stock
+                    </span>
+                    {produit?.livraisonGratuite && (
+                      <span className="px-3 py-1.5 text-xs font-semibold text-green-800 bg-green-100 rounded-full border border-green-200">
+                        Livraison gratuite
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
+              {/* LIEU DE LIVRAISON */}
             </div>
 
             {/* RIGHT SIDE - Product Info */}
-            <div className="flex-1 ">
+            <div className="flex-1  ">
               {/* Header with Favorite */}
-              <div className="flex justify-between items-start mb-6">
-                <div className="flex gap-2">
-                  <span className="px-3 py-1.5 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full border border-blue-200">
-                    En stock
-                  </span>
-                  {produit?.livraisonGratuite && (
-                    <span className="px-3 py-1.5 text-xs font-semibold text-green-800 bg-green-100 rounded-full border border-green-200">
-                      Livraison gratuite
-                    </span>
-                  )}
-                </div>
+              <div className="flex justify-between items-center mb-6">
+                {/* Product Title */}
+                <h1 className="text-2xl lg:text-3xl capitalize font-bold text-gray-900 mb-3 leading-tight">
+                  {produit?.nom || "Nom du produit"}
+                </h1>
                 <button
                   onClick={(e) =>
                     addOrRemoveToFav(e, produit, userInfo, dispatch)
@@ -347,11 +403,6 @@ const Produit = () => {
                   )}
                 </button>
               </div>
-
-              {/* Product Title */}
-              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3 leading-tight">
-                {produit?.nom || "Nom du produit"}
-              </h1>
 
               {/* Category */}
               <div className="flex items-center gap-2 mb-4">
@@ -389,8 +440,16 @@ const Produit = () => {
                 <h3 className="text-sm font-semibold text-gray-700 mb-3">
                   Description
                 </h3>
-                <p className="text-gray-600 leading-relaxed bg-gray-50 p-4 rounded-lg border border-gray-100">
-                  {produit?.description || "Aucune description disponible."}
+                <p className="text-gray-700 leading-relaxed font bg-gray-50 p-4 rounded-lg border border-gray-100">
+                  {produit?.description?.replace(/\n/g, "<br />") ? (
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: produit.description.replace(/\n/g, "<br />"),
+                      }}
+                    />
+                  ) : (
+                    "Aucune description disponible."
+                  )}
                 </p>
               </div>
 
@@ -409,29 +468,12 @@ const Produit = () => {
                     value={type}
                     onChange={setType}
                     options={options}
+                    isDisabled={
+                      produit?.nom === "gravier" || produit?.nom === "sable"
+                    }
                     placeholder="Choisir un type..."
                     className="text-sm"
-                    styles={{
-                      control: (base, state) => ({
-                        ...base,
-                        borderColor: state.isFocused ? "#f97316" : "#d1d5db",
-                        borderRadius: "0.75rem",
-                        padding: "4px 8px",
-                        boxShadow: state.isFocused
-                          ? "0 0 0 3px rgb(253 186 116 / 0.3)"
-                          : "none",
-                        "&:hover": { borderColor: "#f97316" },
-                      }),
-                      option: (base, state) => ({
-                        ...base,
-                        backgroundColor: state.isSelected
-                          ? "#f97316"
-                          : state.isFocused
-                          ? "#fed7aa"
-                          : "white",
-                        color: state.isSelected ? "white" : "#374151",
-                      }),
-                    }}
+                    styles={selectStyles}
                   />
                 </div>
               )}
@@ -441,7 +483,9 @@ const Produit = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center justify-between w-full ">
                     <p className="text-sm text-gray-600 mb-1 font-medium">
-                      Prix unitaire
+                      {produit?.nom === "gravier" || produit?.nom === "sable"
+                        ? "Prix"
+                        : "Prix Unitaire"}
                     </p>
                     <p className="text-3xl font-bold text-amber-500">
                       {formatNumberWithDots(prix)} Fcfa
@@ -456,9 +500,27 @@ const Produit = () => {
                   <label className="block text-sm font-semibold text-gray-700">
                     Quantité
                   </label>
-                  <span className="text-xs text-gray-500 font-medium">
-                    Minimum: {minQty} unité{minQty > 1 ? "s" : ""}
-                  </span>
+
+                  {produit.nom !== "gravier" && produit.nom !== "sable" && (
+                    <span className="text-xs text-gray-500 font-medium">
+                      {" "}
+                      Minimum: {minQty} unité{minQty > 1 ? "s" : ""}
+                    </span>
+                  )}
+
+                  {produit.nom === "gravier" && (
+                    <span>
+                      {currentCartItem?.quantite} Tonnes selectionnées
+                    </span>
+                  )}
+
+                  {produit.nom === "sable" && (
+                    <span>
+                      {` ${currentCartItem?.quantite} ${
+                        currentCartItem?.quantite === 1 ? "Benne" : "Bennes"
+                      } de 10 roues`}
+                    </span>
+                  )}
                 </div>
 
                 <div className="flex gap-3">
@@ -466,7 +528,10 @@ const Produit = () => {
                   {isInCart && (
                     <div className="flex items-center bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
                       <button
-                        className="w-12 h-12 flex items-center justify-center text-lg font-bold text-gray-600 hover:bg-gray-100 transition-colors"
+                        disabled={
+                          produit?.nom === "gravier" || produit?.nom === "sable"
+                        }
+                        className="w-12 h-12 flex items-center justify-center text-lg font-bold disabled:bg-gray-50  disabled:text-gray-400 text-gray-600 hover:bg-gray-100 transition-colors"
                         onClick={handleDecrease}
                       >
                         <HiMiniMinus />
@@ -475,7 +540,10 @@ const Produit = () => {
                         {currentCartItem?.quantite || quantite}
                       </span>
                       <button
-                        className="w-12 h-12 flex items-center justify-center text-lg font-bold text-gray-600 hover:bg-gray-100 transition-colors"
+                        disabled={
+                          produit?.nom === "gravier" || produit?.nom === "sable"
+                        }
+                        className="w-12 h-12 flex items-center justify-center text-lg font-bold text-gray-600 disabled:bg-gray-50 disabled:text-gray-400 hover:bg-gray-100 transition-colors"
                         onClick={handleIncrease}
                       >
                         <HiMiniPlus />
@@ -484,49 +552,69 @@ const Produit = () => {
                   )}
 
                   {/* Add to Cart Button */}
-                  <button
-                    className={`flex-1 h-12 rounded-xl font-semibold text-white transition-all duration-300  ${
-                      isInCart
-                        ? "bg-green-500 hover:bg-green-600 shadow-green-200"
-                        : "bg-gradient-to-br from-amber-400 to-amber-500 hover:bg-amber-600 hover:scale-[1.01] will-change-auto  "
-                    }`}
-                    onClick={addToCartFn}
-                  >
-                    {isInCart ? (
-                      <div className="flex items-center justify-center gap-2">
-                        <span>✓ Déjà au panier</span>
-                      </div>
+                  {produit?.nom !== "gravier" && produit?.nom !== "sable" && (
+                    <button
+                      className={`flex-1 h-12 rounded-xl font-semibold text-white transition-all duration-300  ${
+                        isInCart
+                          ? "bg-green-500 hover:bg-green-600 shadow-green-200"
+                          : "bg-gradient-to-br from-amber-400 to-amber-500 hover:bg-amber-600 hover:scale-[1.01] will-change-auto  "
+                      }`}
+                      onClick={addToCartFn}
+                    >
+                      {isInCart ? (
+                        <div className="flex items-center justify-center gap-2">
+                          <span>✓ Déjà au panier</span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center justify-center gap-2">
+                          <span>🛒 Ajouter au panier</span>
+                        </div>
+                      )}
+                    </button>
+                  )}
+                  {(produit?.nom === "gravier" || produit?.nom === "sable") &&
+                    (isInCart ? (
+                      <button
+                        className="bg-gradient-to-br rounded-xl h-12 w-full text-white bg-green-500 hover:bg-green-600 shadow-green-200 hover:scale-[1.01] will-change-auto"
+                        onClick={() => setIsModalOpen(true)}
+                      >
+                        Déjà au panier - Modifier
+                      </button>
                     ) : (
-                      <div className="flex items-center justify-center gap-2">
-                        <span>🛒 Ajouter au panier</span>
-                      </div>
-                    )}
-                  </button>
+                      <button
+                        className="bg-gradient-to-br h-12 rounded-xl w-full text-white from-amber-400 to-amber-500 py- hover:bg-amber-600 hover:scale-[1.01] will-change-auto"
+                        onClick={() => setIsModalOpen(true)}
+                      >
+                        Ajouter au panier
+                      </button>
+                    ))}
                 </div>
 
                 {/* Cart Status */}
-                <div className="mt-3 text-center">
-                  <p
-                    className={`text-sm font-medium ${
-                      isInCart ? "text-green-600" : "text-gray-500"
-                    }`}
-                  >
-                    {isInCart
-                      ? `${currentCartItem?.quantite} produit${
-                          currentCartItem?.quantite > 1 ? "s" : ""
-                        } dans votre panier`
-                      : `Commencez par ${minQty} unité${
-                          minQty > 1 ? "s" : ""
-                        } minimum`}
-                  </p>
-                </div>
+                {produit.nom !== "gravier" ||
+                  (produit.nom !== "sable" && (
+                    <div className="mt-3 text-center">
+                      <p
+                        className={`text-sm font-medium ${
+                          isInCart ? "text-green-600" : "text-gray-500"
+                        }`}
+                      >
+                        {isInCart
+                          ? `${currentCartItem?.quantite} produit${
+                              currentCartItem?.quantite > 1 ? "s" : ""
+                            } dans votre panier`
+                          : `Commencez par ${minQty} unité${
+                              minQty > 1 ? "s" : ""
+                            } minimum`}
+                      </p>
+                    </div>
+                  ))}
               </div>
 
               {/* Devis Button */}
             </div>
           </div>
         </div>
-
         {/* Additional Components */}
         <div className="mt-8">
           <VoirPlus
@@ -535,7 +623,6 @@ const Produit = () => {
             allProduits={allProduits}
           />
         </div>
-
         <div className="mt-8">
           <Commentaires
             produit={produit}
@@ -543,6 +630,20 @@ const Produit = () => {
             allProduits={allProduits}
           />
         </div>
+        <GravierModal
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          type={type}
+          setPrix={setPrix}
+          setType={setType}
+          options={options}
+          commune={commune}
+          setCommune={setCommune}
+          communeOptions={communeOptions}
+          quantite={quantite}
+          produit={produit}
+          setQuantite={setQuantite}
+        />
       </div>
     </div>
   );

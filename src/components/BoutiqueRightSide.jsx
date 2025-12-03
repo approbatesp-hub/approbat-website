@@ -67,7 +67,7 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
       </div>
 
       <div className="relative h-full">
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5  gap-[10px] p-3 md:gap-[20px] md:p-5 mb-[60px]">
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-[10px] p-3 md:gap-[20px] md:p-5 mb-[60px]">
           {currentItems?.map((produit) => (
             <div
               onClick={() => navigateProduct(produit)}
@@ -75,24 +75,29 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
               className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group cursor-pointer transition-all duration-300 hover:shadow-md"
             >
               {/* Product Image + Badges */}
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden ">
                 {/* ✅ IMPROVED: Partner badge (top-left) */}
                 {produit?.fournisseur &&
                   produit?.fournisseur !== "aucun" &&
                   partners.find(
                     (el) => el.name === produit?.fournisseur.toUpperCase()
                   ) && (
-                    <div className="absolute top-2 left-2 z-10 w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden border-2 border-white shadow-sm">
-                      <img
-                        src={
-                          partners.find(
-                            (el) =>
-                              el.name === produit?.fournisseur.toUpperCase()
-                          )?.logo
-                        }
-                        alt={produit.fournisseur}
-                        className="w-full h-full object-contain bg-white"
-                      />
+                    <div className="absolute items-center gap-1 top-2 left-2 z-10 flex ">
+                      <div className=" w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden border-2 border-white shadow-sm">
+                        <img
+                          src={
+                            partners.find(
+                              (el) =>
+                                el.name === produit?.fournisseur.toUpperCase()
+                            )?.logo
+                          }
+                          alt={produit.fournisseur}
+                          className="w-full h-full object-contain bg-white"
+                        />
+                      </div>
+                      <span className="text-[10px] md:text-[13px] text-shadow-md text-white font-bold px-1">
+                        {produit?.fournisseur.toUpperCase()}
+                      </span>
                     </div>
                   )}
 
@@ -122,7 +127,7 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
               </div>
 
               {/* Product Info */}
-              <div className=" flex flex-col flex-between p-2 gap-2  md:p-4 min-h-[calc(100%-120px)] md:min-h-[calc(100%-140px)]">
+              <div className=" flex flex-col flex-between p-2 gap-2  md:p-4 min-h-[calc(100%-120px)] md:min-h-[calc(100%-140px)] lg:min-h-[calc(100%-160px)] ">
                 <div className="">
                   <h3 className="font-medium capitalize text-gray-900  line-clamp-2">
                     {produit.nom.length > 30
@@ -136,7 +141,7 @@ const BoutiqueRightSide = ({ produits, openDrawer }) => {
                   )}
                 </div>
                 <div
-                  className="   mt-auto lg:mt-0
+                  className=" mt-auto
                  "
                 >
                   <div className="">

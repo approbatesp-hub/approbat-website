@@ -28,19 +28,22 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [total, setTotal] = useState(0);
-
+  console.log(
+    cart.forEach((el) => {
+      console.log(el.quantite);
+      console.log(el.quantiteMinimale);
+    })
+  );
   useEffect(() => {
-    console.log(cart);
-    let prix = cart.reduce((acc, i) => acc + i.prix * i.quantite, 0);
-    setTotal(prix);
-  }, [cart]);
+    let prix1 = cart
+      .filter((el) => el.nom !== "gravier" && el.nom !== "sable")
+      .reduce((acc, i) => acc + i.prix * i.quantite, 0);
+    let prix2 = cart
+      .filter((el) => el.nom === "gravier" || el.nom === "sable")
+      .reduce((acc, i) => acc + i.prix, 0);
 
-  // const changeQuantité = (e, produit) => {
-  //   console.log(e, produit);
-  //   // Ensure the input is a number and not negative
-  //   const updatedQuantite = Math.max(1, parseInt(e.target.value) || 1);
-  //   dispatch(updateQuantity({ updatedQuantite, produit }));
-  // };
+    setTotal(prix1 + prix2);
+  }, [cart]);
 
   function goToCheckout() {
     if (!userInfo) {
@@ -145,18 +148,70 @@ const Cart = () => {
                         )}
                       </p>
                       <p className="text-xs  text-gray-500 capitalize">
-                        <span>
-                          Quantité minimale :{" "}
-                          <span className="font-medium">
-                            {el.quantiteMinimale}
+                        {el.nom !== "gravier" && el.nom !== "sable" && (
+                          <span>
+                            Quantité minimale :{" "}
+                            <span className="font-medium">
+                              {el.quantiteMinimale}
+                            </span>
                           </span>
-                        </span>
+                        )}
+                        {el.nom === "sable" && (
+                          <span>
+                            Nombre de Benne :
+                            <span className="font-medium">{el.quantite}</span>
+                          </span>
+                        )}
+
+                        {el.nom === "gravier" && (
+                          <span>
+                            Quantité :{" "}
+                            <span className="font-medium">
+                              {el.quantite} Tonnes
+                            </span>
+                          </span>
+                        )}
+                      </p>
+
+                      <p className="flex gap-2 items-center text-sm text-gray-600">
+                        {el.nom !== "gravier" && el.nom !== "sable" && (
+                          <>
+                            <span className=" text-nowrap text-xs">
+                              Prix Unitaire :{" "}
+                            </span>
+                            <span className="font-medium text-nowrap text-gray-800 text-sm">
+                              {formatNumberWithDots(el.prix)} Fcfa
+                            </span>
+                          </>
+                        )}
                       </p>
                       <p className="flex gap-2 items-center text-sm text-gray-600">
-                        <span className=" text-nowrap">Prix Unitaire : </span>
-                        <span className="font-bold text-nowrap text-gray-800 text-base">
-                          {formatNumberWithDots(el.prix)} Fcfa
-                        </span>
+                        {el.nom !== "gravier" && el.nom !== "sable" && (
+                          <>
+                            <span className=" text-nowrap">Sous-Total : </span>
+                            <span className="font-bold text-nowrap text-gray-800 text-base">
+                              {formatNumberWithDots(el.prix * el.quantite)} Fcfa
+                            </span>
+                          </>
+                        )}
+
+                        {el.nom === "gravier" && (
+                          <>
+                            <span className=" text-nowrap">Sous-Total : </span>
+                            <span className="font-bold text-nowrap text-gray-800 text-base">
+                              {formatNumberWithDots(el.prix)} Fcfa
+                            </span>
+                          </>
+                        )}
+
+                        {el.nom === "sable" && (
+                          <>
+                            <span className=" text-nowrap">Sous-Total : </span>
+                            <span className="font-bold text-nowrap text-gray-800 text-base">
+                              {formatNumberWithDots(el.prix)} Fcfa
+                            </span>
+                          </>
+                        )}
                       </p>
                     </div>
                   </div>
@@ -178,32 +233,34 @@ const Cart = () => {
                       </span>
                     </div>
                     {/* Quantity and Unit Price */}
-                    <div className="flex flex-col gap-2 items-start">
-                      <p className="flex items-center gap-[20px] md:gap-[30px] ">
-                        <button
-                          disabled={el.quantite === el.quantiteMinimale}
-                          onClick={() =>
-                            dispatch(
-                              decreaseQuantity({ produit: el, type: el.type })
-                            )
-                          }
-                          className=" disabled:bg-gray-400 bg-amber-500 cursor-pointer px-1 rounded py-1 text-white "
-                        >
-                          <HiMiniMinus className="text-xl" />
-                        </button>
-                        <span>{el.quantite} </span>
-                        <button
-                          onClick={() =>
-                            dispatch(
-                              increaseQuantity({ produit: el, type: el.type })
-                            )
-                          }
-                          className="bg-amber-500 cursor-pointer px-1 rounded py-1 text-white"
-                        >
-                          <HiMiniPlus className="text-2xl" />
-                        </button>
-                      </p>
-                    </div>
+                    {el?.nom !== "gravier" && el?.nom !== "sable" && (
+                      <div className="flex flex-col gap-2 items-start">
+                        <p className="flex items-center gap-[20px] md:gap-[30px] ">
+                          <button
+                            disabled={el.quantite === el.quantiteMinimale}
+                            onClick={() =>
+                              dispatch(
+                                decreaseQuantity({ produit: el, type: el.type })
+                              )
+                            }
+                            className=" disabled:bg-gray-400 bg-amber-500 cursor-pointer px-1 rounded py-1 text-white "
+                          >
+                            <HiMiniMinus className="text-xl" />
+                          </button>
+                          <span>{el.quantite} </span>
+                          <button
+                            onClick={() =>
+                              dispatch(
+                                increaseQuantity({ produit: el, type: el.type })
+                              )
+                            }
+                            className="bg-amber-500 cursor-pointer px-1 rounded py-1 text-white"
+                          >
+                            <HiMiniPlus className="text-2xl" />
+                          </button>
+                        </p>
+                      </div>
+                    )}
 
                     {/* Subtotal and Delete */}
                   </div>

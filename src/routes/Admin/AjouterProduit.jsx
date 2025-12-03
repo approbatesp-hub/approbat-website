@@ -224,12 +224,12 @@ const AjouterProduit = () => {
       return;
     }
 
-    const validTypes = ["image/png", "image/jpeg"];
+    const validTypes = ["image/png", "image/jpeg", "image/webp"];
     const invalidFiles = files.filter(
       (file) => !validTypes.includes(file.type)
     );
     if (invalidFiles.length > 0) {
-      toast.error("Seules les images JPEG et PNG sont acceptées.");
+      toast.error("Seules les images JPEG, PNG et WebP sont acceptées.");
       return;
     }
 
@@ -409,7 +409,7 @@ const AjouterProduit = () => {
                 placeholder="Livraison gratuite"
                 className="text-sm"
                 classNames={{
-                  control: (state) =>
+                  control: () =>
                     "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
@@ -420,7 +420,7 @@ const AjouterProduit = () => {
                 placeholder="En stock"
                 className="text-sm"
                 classNames={{
-                  control: (state) =>
+                  control: () =>
                     "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
@@ -436,7 +436,7 @@ const AjouterProduit = () => {
                 placeholder="Fournisseur"
                 className="text-sm"
                 classNames={{
-                  control: (state) =>
+                  control: () =>
                     "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
@@ -462,7 +462,7 @@ const AjouterProduit = () => {
                 placeholder="Catégorie"
                 className="text-sm"
                 classNames={{
-                  control: (state) =>
+                  control: () =>
                     "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
@@ -474,7 +474,7 @@ const AjouterProduit = () => {
                 isDisabled={!categorie}
                 className="text-sm"
                 classNames={{
-                  control: (state) =>
+                  control: () =>
                     "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />
@@ -494,7 +494,7 @@ const AjouterProduit = () => {
                 value={types}
                 className="text-sm"
                 classNames={{
-                  control: (state) =>
+                  control: () =>
                     "border border-gray-300 rounded-lg px-3 md:py-2 hover:border-amber-400 focus:border-amber-500",
                 }}
               />

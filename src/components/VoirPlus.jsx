@@ -130,18 +130,23 @@ const VoirPlus = ({ allProduits }) => {
                             (el) =>
                               el.name === produit?.fournisseur.toUpperCase()
                           ) && (
-                            <div className="absolute top-2 left-2 z-10 w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden border-2 border-white shadow-sm">
-                              <img
-                                src={
-                                  partners.find(
-                                    (el) =>
-                                      el.name ===
-                                      produit?.fournisseur.toUpperCase()
-                                  )?.logo
-                                }
-                                alt={produit.fournisseur}
-                                className="w-full h-full object-contain bg-white"
-                              />
+                            <div className="absolute items-center gap-1 top-2 left-2 z-10 flex ">
+                              <div className=" w-8 h-8 md:w-10 md:h-10 rounded-md overflow-hidden border-2 border-white shadow-sm">
+                                <img
+                                  src={
+                                    partners.find(
+                                      (el) =>
+                                        el.name ===
+                                        produit?.fournisseur.toUpperCase()
+                                    )?.logo
+                                  }
+                                  alt={produit.fournisseur}
+                                  className="w-full h-full object-contain bg-white"
+                                />
+                              </div>
+                              <span className="text-[10px] md:text-[13px] text-shadow-md text-white font-bold px-1">
+                                {produit?.fournisseur.toUpperCase()}
+                              </span>
                             </div>
                           )}
 

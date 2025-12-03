@@ -43,7 +43,6 @@ const espremiumSlice = createSlice({
       state.products = action.payload;
     },
     addToCart(state, action) {
-      console.log("ACTION,", action.payload);
       if (!action.payload.type) {
         const existingItem = state.cart.find(
           (item) => item.id === action.payload.id

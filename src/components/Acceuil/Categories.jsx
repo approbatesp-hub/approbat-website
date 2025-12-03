@@ -28,7 +28,6 @@ const Categories = () => {
       description: "Installations nécessaires au fonctionnement du bâtiment",
       subcategories: [
         "Électricité",
-        "Appareils électriques",
         "Plomberie (évacuation et alimentation)",
         "Accessoires techniques",
       ],
@@ -62,7 +61,7 @@ const Categories = () => {
 
   return (
     <div className="py-10 md:py-16 bg-gradient-to-b px-[10px] md:px-0 from-white to-[#f9fbfe]">
-      <div className="xl:max-w-[70%]  mx-auto px-4 sm:px-6 lg:px-16 xl:px-8">
+      <div className="xl:max-w-[80%]   lg:max-w-[100%]  mx-auto px-4 sm:px-6 lg:px-10 xl:px-8">
         {/* Header – Clean & Confident */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
           <div className="inline-flex items-center gap-2 bg-[#f0f9ff] text-[#088acc] text-sm font-medium px-4 py-2 rounded-full mb-6 border border-[#d1e8ff]">
@@ -93,7 +92,7 @@ const Categories = () => {
         </div>
 
         {/* 4 Cards – Minimalist Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-8 mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 xl:gap-8 mx-auto">
           {mainCategories.map((category, idx) => (
             <div
               key={idx}
@@ -101,7 +100,7 @@ const Categories = () => {
             >
               <div className="flex h-full flex-col lg:flex-row items-start gap-3 ">
                 {/* Text Content */}
-                <div className="flex-1 p-7 flex flex-col  h-full justify-between">
+                <div className="flex-1 p-2 pl-5 pb-4 flex flex-col  h-full justify-between">
                   <h3 className="text-xl font-bold text-[#2f4858] mb-1">
                     {category.title}
                   </h3>
@@ -147,7 +146,7 @@ const Categories = () => {
                 </div>
 
                 {/* Image */}
-                <div className="w-full lg:w-[240px] h-[210px] md:h-[230px]  lg:h-full flex-shrink-0 rounded-bl-xl rounded-br-xl lg:rounded-bl-[0px] lg:rounded-r-xl overflow-hidden">
+                <div className="w-full lg:w-[240px] h-[210px] md:h-[230px] lg:h-full xl:h-full flex-shrink-0 rounded-bl-xl rounded-br-xl lg:rounded-bl-[0px] lg:rounded-r-xl overflow-hidden">
                   <img
                     src={category.image}
                     alt={category.title}

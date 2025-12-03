@@ -32,6 +32,7 @@ export const fournisseurs = ["SOTICI", "SOTACI", "SIBM", "AUCUN"];
 
 export const communesAbidjan = [
   { commune: "Abobo" },
+  { commune: "Adiaké" },
   { commune: "Adjamé" },
   { commune: "Anyama" },
   { commune: "Assinie" },
@@ -39,6 +40,7 @@ export const communesAbidjan = [
   { commune: "Bingerville" },
   { commune: "Brofodoume" },
   { commune: "Cocody" },
+  { commune: "Ébimpé" },
   { commune: "Grand-Bassam" },
   { commune: "Koumassi" },
   { commune: "Marcory" },
@@ -49,6 +51,254 @@ export const communesAbidjan = [
   { commune: "Yopougon" },
 ];
 
+export const adresseLivraisonGravier = [
+  {
+    lieu: "Yopougon",
+    prix: {
+      20: 201000,
+      30: 274000,
+      50: 420000,
+    },
+  },
+  {
+    lieu: "Songon",
+    prix: {
+      20: 201000,
+      30: 274000,
+      50: 420000,
+    },
+  },
+  {
+    lieu: "Adjamé",
+    prix: {
+      20: 206000,
+      30: 279000,
+      50: 430000,
+    },
+  },
+  {
+    lieu: "Cocody",
+    prix: {
+      20: 211000,
+      30: 289000,
+      50: 435000,
+    },
+  },
+  {
+    lieu: "KOUMASSI",
+    prix: {
+      20: 211000,
+      30: 284000,
+      50: 440000,
+    },
+  },
+  {
+    lieu: "Marcory",
+    prix: {
+      20: 211000,
+      30: 284000,
+      50: 440000,
+    },
+  },
+  {
+    lieu: "Treichville",
+    prix: {
+      20: 211000,
+      30: 284000,
+      50: 440000,
+    },
+  },
+  {
+    lieu: "Anyama",
+    prix: {
+      20: 211000,
+      30: 284000,
+      50: 420000,
+    },
+  },
+  {
+    lieu: "Ébimpé",
+    prix: {
+      20: 211000,
+      30: 284000,
+      50: 420000,
+    },
+  },
+  {
+    lieu: "Bingerville",
+    prix: {
+      20: 221000,
+      30: 294000,
+      50: 450000,
+    },
+  },
+  {
+    lieu: "Bassam",
+    prix: {
+      20: 221000,
+      30: 294000,
+      50: 440000,
+    },
+  },
+  {
+    lieu: "Port-Bouët",
+    prix: {
+      20: 291000,
+      30: 384000,
+      50: 550000,
+    },
+  },
+  {
+    lieu: "Assinie",
+    prix: {
+      20: 291000,
+      30: 384000,
+      50: 550000,
+    },
+  },
+  {
+    lieu: "Adiaké",
+    prix: {
+      20: 291000,
+      30: 384000,
+      50: 550000,
+    },
+  },
+];
+
+export const adresseLivraisonSable = [
+  {
+    lieu: "Yopougon",
+    prix: {
+      1: 75000,
+      2: 150000,
+      3: 225000,
+      4: 300000,
+    },
+  },
+  {
+    lieu: "Treichville",
+    prix: {
+      1: 75000,
+      2: 150000,
+      3: 225000,
+      4: 300000,
+    },
+  },
+  {
+    lieu: "Port-Bouët",
+    prix: {
+      1: 75000,
+      2: 150000,
+      3: 225000,
+      4: 300000,
+    },
+  },
+  {
+    lieu: "Marcory",
+    prix: {
+      1: 75000,
+      2: 150000,
+      3: 225000,
+      4: 300000,
+    },
+  },
+  {
+    lieu: "Koumassi",
+    prix: {
+      1: 75000,
+      2: 150000,
+      3: 225000,
+      4: 300000,
+    },
+  },
+  {
+    lieu: "Bingerville",
+    prix: {
+      1: 80000,
+      2: 160000,
+      3: 240000,
+      4: 320000,
+    },
+  },
+  {
+    lieu: "Anyama",
+    prix: {
+      1: 90000,
+      2: 180000,
+      3: 270000,
+      4: 360000,
+    },
+  },
+  {
+    lieu: "Abobo",
+    prix: {
+      1: 85000,
+      2: 170000,
+      3: 255000,
+      4: 340000,
+    },
+  },
+  {
+    lieu: "Cocody",
+    prix: {
+      1: 85000,
+      2: 170000,
+      3: 255000,
+      4: 340000,
+    },
+  },
+  {
+    lieu: "Bassam",
+    prix: {
+      1: 70000,
+      2: 140000,
+      3: 210000,
+      4: 280000,
+    },
+  },
+  {
+    lieu: "Songon",
+    prix: {
+      1: 70000,
+      2: 140000,
+      3: 210000,
+      4: 280000,
+    },
+  },
+
+  {
+    lieu: "Ébimpé",
+    prix: {
+      1: 90000,
+      2: 180000,
+      3: 270000,
+      4: 360000,
+    },
+  },
+];
+
 export function formatNumberWithDots(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
+
+export const selectStyles = {
+  control: (provided) => ({
+    ...provided,
+    borderColor: "#d1d5db", // gray-300
+    minHeight: "42px",
+    boxShadow: "none",
+    "&:hover": {
+      borderColor: "#9ca3af", // gray-400
+    },
+  }),
+  option: (provided, state) => ({
+    ...provided,
+    backgroundColor: state.isSelected
+      ? "#FF7A00"
+      : state.isFocused
+      ? "#fdece0"
+      : "white",
+    color: state.isSelected ? "white" : "black",
+  }),
+};

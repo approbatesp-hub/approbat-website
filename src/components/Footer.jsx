@@ -1,14 +1,14 @@
 import { CiFacebook, CiLinkedin } from "react-icons/ci";
-import { FaWhatsapp, FaHeart } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
 import { IoConstruct } from "react-icons/io5";
 import Logo from "../assets/Images/logo.png";
 import { Link } from "react-router";
-import ContactMe from "./ContactMe";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   const phoneNumber = "+2250500769696";
   const message =
-    "Bonjour Approbat,\nNotre équipe est à votre disposition et assure un suivi personnalisé de votre commande!";
+    "Bonjour Approbat Services,\nNotre équipe est à votre disposition et assure un suivi personnalisé de votre commande!";
 
   return (
     <footer className="bg-gray-900 text-white py-5 shadow-lg border-t border-gray-700">
@@ -90,7 +90,7 @@ const Footer = () => {
                 <FaWhatsapp className="text-xl" />
               </Link>
               <Link
-                to="https://www.facebook.com/profile.php?id=61565884556628"
+                to="https://www.facebook.com/profile.php?id=61584509372296"
                 target="_blank"
                 className="bg-blue-600 hover:bg-blue-700 text-white p-2 lg:p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
                 aria-label="Suivez-nous sur Facebook"
@@ -98,12 +98,20 @@ const Footer = () => {
                 <CiFacebook className="text-xl" />
               </Link>
               <Link
-                to="https://www.linkedin.com/in/approbat-approbat-8212b2331/"
+                to="https://www.linkedin.com/company/approbat-services"
                 target="_blank"
                 className="bg-blue-500 hover:bg-blue-600 text-white p-2 lg:p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
                 aria-label="Suivez-nous sur LinkedIn"
               >
                 <CiLinkedin className="text-xl" />
+              </Link>
+              <Link
+                to="https://www.tiktok.com/@approbatservices"
+                target="_blank"
+                className="bg-black hover:bg-black/80 text-white p-2 lg:p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg"
+                aria-label="Suivez-nous sur TikTok"
+              >
+                <FaTiktok className="text-xl" />
               </Link>
             </div>
           </div>
@@ -114,7 +122,7 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <p className="text-gray-400  space-y-2 md:space-y-0 text-sm text-center ">
-          © 2025 Approbat. Tous droits réservés.
+          © 2025 Approbat Services. Tous droits réservés.
         </p>
       </div>
     </footer>
